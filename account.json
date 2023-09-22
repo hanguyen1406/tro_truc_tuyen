@@ -1,0 +1,16 @@
+[
+    {
+        "email": "hgnguyen47347714@gmail.com",
+        "password": "123",
+        "username": "hanguyen1406",
+        "role": "1",
+        "sex": "0"
+    },
+    {
+        "email": "hgnguyen@gmail.com",
+        "password": "123",
+        "username": "linh",
+        "role": "1",
+        "sex": "1"
+    }
+]
