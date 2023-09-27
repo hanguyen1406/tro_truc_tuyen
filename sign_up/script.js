@@ -35,7 +35,8 @@ sign_up.addEventListener("click", () => {
                     if (data == "signed") {
                         swal("Đăng ký thành công, trở về trang chủ").then(
                             () => {
-                                window.location.href = "http://trotot.infinityfreeapp.com/";
+                                // window.location.href = "http://trotot.infinityfreeapp.com/";
+                                window.location.href = "http://127.0.0.1";
                             }
                         );
                     }

@@ -21,7 +21,8 @@ document.querySelector("#sign_in").addEventListener("click", () => {
                 swal("Sai mật khẩu");
             } else if (data == 2) {
                 swal("Đăng nhập thành công").then(() => {
-                    window.location.href = "http://trotot.infinityfreeapp.com/";
+                    // window.location.href = "http://trotot.infinityfreeapp.com/";
+                    window.location.href = "http://127.0.0.1";
 
                     // Set the cookie with user data
                 });
