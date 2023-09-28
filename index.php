@@ -57,6 +57,23 @@ if (isset($_COOKIE['username'])) {
             .context-menu ul li:hover {
                 background-color: #f2f2f2;
             }
+            #name {
+                font-size: 16px;
+                display: inline;
+            }
+
+            /* Decrease text size as the viewport width decreases */
+            @media (max-width: 768px) {
+                #name {
+                    font-size: 14px;
+                }
+            }
+
+            @media (max-width: 480px) {
+                #name {
+                    font-size: 12px;
+                }
+            }
 
         </style>
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
@@ -82,7 +99,7 @@ if (isset($_COOKIE['username'])) {
                 }
             </style>
             <p style="font-size: 25px" class="animated-text">Trọ Trực Tuyến: Website thuê trọ uy tín chất lượng số 1 Việt Nam.</p>
-            <ul style="background-color: aliceblue" class="nav nav-tabs sticky-top p-2 rounded">
+            <ul id="nav-tab" style="background-color: aliceblue" class="nav nav-tabs sticky-top p-2 rounded">
                 <li class="nav-item">
                     <a
                         class="nav-link active"
@@ -125,11 +142,11 @@ if (isset($_COOKIE['username'])) {
                 >
                 
                 <button class="btn btn-secondary" id="user_btn">
-                <img style="height: 30px" src="../images/sex/<?php
+                <img style="height: 20px;" src="../images/sex/<?php
                     $avatar = $_COOKIE['avatar'];
                     echo $avatar;
                 ?>"/>
-                    <?php echo $username; ?>
+                    <div id="name"><?php echo $username; ?></div>
                 </button>
                 
                 <div class="context-menu" id="contextMenu">
@@ -191,20 +208,28 @@ if (isset($_COOKIE['username'])) {
                                 $status = $data['data'][$i]['status'];
                                 echo 
                                 '<div class="row">
-                                    <div class="col-md-10 mb-3">
+                                    <div class="col-md-12 mb-3">
                                         <div class="card p-1">
                                             <div class="row no-gutters">
                                                 <div class="col-md-4">
                                                     <img width="300" height="200" src="../images/'.$img.'" alt="Image" class="card-img">
                                                 </div>
-                                                <div class="col-md-8">
+                                                <div class="col-md-6">
                                                     <div class="card-body">
                                                         <h5 class="card-title">'.($i + 1).'. '.$title.'</h5>
                                                         <p class="card-text two-line-ellipsis">Some example text for Card 1. You can add more content here. Some example text for Card 1. You can add more content here.</p>
                                                         <b>Giá tiền:</b> '.$price.' vnđ<br>
                                                         <b>Địa chỉ:</b> '.$address.', '.$district.', '.$province.'<br>
                                                         <b>Đăng tải lúc:</b> '.$currentDate.'<br>
-                                                        <b>Trạng thái:</b> '.$status.'
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2 d-flex justify-content-center">
+                                                    <div class="card m-1">
+                                                        <div class="card-body">
+                                                            <div class="btn btn-primary">
+                                                            '.$status.'
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>

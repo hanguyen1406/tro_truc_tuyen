@@ -1,7 +1,7 @@
 var contextMenu = document.getElementById("contextMenu");
 var usernameBtn = document.querySelector("#user_btn");
 var signOutBtn = document.getElementById("signOutBtn");
-
+var menuOpen = false;
 // Function to display the context menu at the mouse position
 function showContextMenu(event) {
     event.preventDefault();
@@ -16,21 +16,23 @@ function hideContextMenu() {
 }
 
 // Show the context menu on right-click
-usernameBtn.addEventListener("contextmenu", showContextMenu);
+usernameBtn.addEventListener("click", showContextMenu);
 
 // Hide the context menu when clicking outside of it
-document.addEventListener("click", hideContextMenu);
+document.querySelector(".tab-content").addEventListener("click", () => {
+    hideContextMenu();
+});
 
 // Hide the context menu when clicking the Sign Out button
 signOutBtn.addEventListener("click", () => {
     hideContextMenu();
-    fetch('./sign_out.php')
-    .then(response => response)
-    .then(data => {
-        // window.location.href = "http://trotot.infinityfreeapp.com/sign_in/";
-        window.location.href = "http://127.0.0.1/sign_in/";
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
+    fetch("./sign_out.php")
+        .then((response) => response)
+        .then((data) => {
+            // window.location.href = "http://trotot.infinityfreeapp.com/sign_in/";
+            window.location.href = "http://127.0.0.1/sign_in/";
+        })
+        .catch((error) => {
+            console.error("Error:", error);
+        });
 });
