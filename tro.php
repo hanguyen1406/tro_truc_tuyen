@@ -19,8 +19,8 @@ if (isset($_COOKIE['username'])) {
     
     
 } else {
-    // header("Location: http://trotot.infinityfreeapp.com/sign_in");
-    header("Location: http://127.0.0.1/sign_in");
+    header("Location: http://trotot.infinityfreeapp.com/sign_in");
+    // header("Location: http://127.0.0.1/sign_in");
     exit(); // Make sure to exit after the redirect
 } 
 ?>
@@ -119,7 +119,7 @@ if (isset($_COOKIE['username'])) {
                     <a
                         class="nav-link"
                         id="Home-tab"
-                        href="http://127.0.0.1"
+                        href="http://trotot.infinityfreeapp.com/"
                         >Trang chủ</a
                     >
                 </li>
@@ -127,7 +127,7 @@ if (isset($_COOKIE['username'])) {
                     <a
                         class="nav-link"
                         id="Product-tab"
-                        href="http://127.0.0.1?tab=1"
+                        href="http://trotot.infinityfreeapp.com?tab=1"
                         >Tìm trọ</a
                     >
                 </li>
@@ -135,7 +135,7 @@ if (isset($_COOKIE['username'])) {
                     <a
                         class="nav-link"
                         id="Contact-tab"
-                        href="http://127.0.0.1?tab=2"
+                        href="http://trotot.infinityfreeapp.com?tab=2"
                         >Cho thuê</a
                     >
                 </li>
@@ -163,7 +163,7 @@ if (isset($_COOKIE['username'])) {
 
             <div class="tab-content container">
                 <div class="row mt-1">
-                    <div class="col-md-8">
+                    <div  class="col-md-8">
                         <div class="card">
                             <div class="card-body">
                                 <style>
@@ -335,10 +335,81 @@ if (isset($_COOKIE['username'])) {
                                         <i class="fas fa-phone-volume m-1"></i><?php echo $jsonUserData[$userid]['std']; ?>
                                     </div>
                                 </div>
+                                <div class="row mt-1">
+                                    <div class="text-center">
+                                        <?php 
+                                        if($tro['status'] == 1) {
+                                            echo '<div class="btn btn-primary shadow">Thuê ngay</div>';
+                                        }
+                                        ?>
+                                        
+                                    </div>
+                                </div>
+                                
                                 
                             </div>
                         </div>
+                        <style>
+                            .scroll-container {
+                                width: 100%; /* Set a width for the container */
+                                height: 400px; /* Set a fixed height for the container */
+                                overflow: auto; /* Add scrollbars when content overflows the container */
+                            }
+                        </style>
+                        <div class="card mt-1 p-2">
+                            <h5>Bài đăng khác của <?php echo $jsonUserData[$userid]['username']; ?></h5>
+                            <div class="scroll-container">
+                                <style>
+                                    .two-line-ellipsis {
+                                        display: -webkit-box;
+                                        -webkit-line-clamp: 1; /* Number of lines to display */
+                                        -webkit-box-orient: vertical;
+                                        overflow: hidden;
+                                        text-overflow: ellipsis;
+                                    }
+                                </style>
+                                <?php 
+                                $not = count($jsonData['data']);
+                                for ($i=0; $i < $not; $i++) { 
+                                    if($jsonData['data'][$i]['userid'] == $tro['userid'] && $jsonData['data'][$i]['id'] != $index) {
+                                        $title = $jsonData['data'][$i]['title'];
+                                        $img = $jsonData['data'][$i]['images'][0];
+                                        $price = $jsonData['data'][$i]['price'];
+                                        $price = number_format($price);
+                                        $area = $jsonData['data'][$i]['area'];
+                                        $index = $jsonData['data'][$i]['id'];
+                                        echo 
+                                        '<div  class="card p-2 m-2">
+                                            <img src="'.$img.'"/>
+                                            <a href="tro.php?index='.$index.'">
+                                                <b class="two-line-ellipsis">'.$title.'</b>
+                                                <b>Diện tích: '.$area.'m²</b><br>
+                                                <b style="color:#d0021b">'.$price.'/tháng</b>
+                                            </a>
+
+                                        </div>';
+                                    }
+                                }
+                                ?>
+                            </div>
+                        </div>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-1" style="background-color: white;">
+            <div class="col-md-9">
+                <div class="text-center m-4" >Công ty TNHH Trọ Trực Tuyến - Người đại diện pháp luật: Vũ Trường Giang
+                    <br>Địa chỉ: 175 Tây Sơn, Đống Đa, Hà Nội; Email: trogiup@chotructuyen.vn - Tổng đài CSKH: 12345678 (1.000đ/phút)
+                </div>
+            </div>
+            <div class="col-md-3 text-center">
+                <div>
+                    <br>Liên kết<br><img src="https://static.chotot.com/storage/default/facebook.svg"/>
+                    <img src="https://static.chotot.com/storage/default/youtube.svg"/>
+                    <img src="https://static.chotot.com/storage/default/linkedin.svg"/>
+                    <br>Chứng nhận<br><img src="https://static.chotot.com/storage/default/certificate.webp"/>
+                    
                 </div>
             </div>
         </div>

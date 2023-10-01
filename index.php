@@ -20,8 +20,8 @@ if (isset($_COOKIE['username'])) {
     }
 
 } else {
-    // header("Location: http://trotot.infinityfreeapp.com/sign_in");
-    header("Location: http://127.0.0.1/sign_in");
+    header("Location: http://trotot.infinityfreeapp.com/sign_in");
+    // header("Location: http://127.0.0.1/sign_in");
     exit(); // Make sure to exit after the redirect
 } 
 ?>
@@ -299,20 +299,25 @@ if (isset($_COOKIE['username'])) {
                 </div>
             </div>
         </div>
-    </body>
-    <footer class="mt-1">
         
-            
-        <div class="text-center" style="background-color: white;">Công ty TNHH Trọ Trực Tuyến - Người đại diện pháp luật: Vũ Trường Giang
-        <br>Địa chỉ: 175 Tây Sơn, Đống Đa, Hà Nội; Email: trogiup@chotructuyen.vn - Tổng đài CSKH: 12345678 (1.000đ/phút)
+        <div class="row mt-1" style="background-color: white;">
+            <div class="col-md-9">
+                <div class="text-center m-4" >Công ty TNHH Trọ Trực Tuyến - Người đại diện pháp luật: Vũ Trường Giang
+                    <br>Địa chỉ: 175 Tây Sơn, Đống Đa, Hà Nội; Email: trogiup@chotructuyen.vn - Tổng đài CSKH: 12345678 (1.000đ/phút)
+                </div>
+            </div>
+            <div class="col-md-3 text-center">
+                <div>
+                    <br>Liên kết<br><img src="https://static.chotot.com/storage/default/facebook.svg"/>
+                    <img src="https://static.chotot.com/storage/default/youtube.svg"/>
+                    <img src="https://static.chotot.com/storage/default/linkedin.svg"/>
+                    <br>Chứng nhận<br><img src="https://static.chotot.com/storage/default/certificate.webp"/>
+                    
+                </div>
+            </div>
+        </div>
     
-        <br>Liên kết<br><img src="https://static.chotot.com/storage/default/facebook.svg"/>
-        <img src="https://static.chotot.com/storage/default/youtube.svg"/>
-        <img src="https://static.chotot.com/storage/default/linkedin.svg"/>
-        <br>Chứng nhận<br><img src="https://static.chotot.com/storage/default/certificate.webp"/>
-
-        
-    </div>
-    </footer>
+    </body>
+    
     <script src="./script.js"></script>
 </html>
