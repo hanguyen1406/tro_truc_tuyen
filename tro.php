@@ -19,8 +19,8 @@ if (isset($_COOKIE['username'])) {
     
     
 } else {
-    header("Location: http://trotot.infinityfreeapp.com/sign_in");
-    // header("Location: http://127.0.0.1/sign_in");
+    // header("Location: http://trotot.infinityfreeapp.com/sign_in");
+    header("Location: http://127.0.0.1/sign_in");
     exit(); // Make sure to exit after the redirect
 } 
 ?>
@@ -116,10 +116,12 @@ if (isset($_COOKIE['username'])) {
             <p style="font-size: 25px" class="animated-text">Trọ Trực Tuyến: Website thuê trọ uy tín chất lượng số 1 Việt Nam.</p>
             <ul id="nav-tab" style="background-color: aliceblue" class="nav nav-tabs sticky-top p-2">
                 <li class="nav-item">
+                    <!-- http://trotot.infinityfreeapp.com -->
+                    <!-- http://127.0.0.1 -->
                     <a
                         class="nav-link"
                         id="Home-tab"
-                        href="http://trotot.infinityfreeapp.com/"
+                        href="http://127.0.0.1"
                         >Trang chủ</a
                     >
                 </li>
@@ -127,7 +129,7 @@ if (isset($_COOKIE['username'])) {
                     <a
                         class="nav-link"
                         id="Product-tab"
-                        href="http://trotot.infinityfreeapp.com?tab=1"
+                        href="http://127.0.0.1?tab=1"
                         >Tìm trọ</a
                     >
                 </li>
@@ -135,9 +137,22 @@ if (isset($_COOKIE['username'])) {
                     <a
                         class="nav-link"
                         id="Contact-tab"
-                        href="http://trotot.infinityfreeapp.com?tab=2"
+                        href="#"
                         >Cho thuê</a
                     >
+                    <script>
+                        var choThue = document.querySelector("#Contact-tab");
+                        choThue.addEventListener("click",() => {
+                            if(getCookie('role') == '1') {
+                                swal("Lỗi", "Phần này chỉ dành cho người cho thuê")
+
+                            }else {
+                                // href="http://127.0.0.1?tab=2"
+                                window.location.href = "http://127.0.0.1?tab=2";
+
+                            }
+                        });
+                    </script>
                 </li>
                 <li
                     style="flex: 1; flex-direction: row-reverse; display: flex"
@@ -237,13 +252,6 @@ if (isset($_COOKIE['username'])) {
                                 </style>
                                 <!-- Slideshow container -->
                                 <div class="slideshow-container">
-
-                                <!-- Full-width images with number and caption text -->
-                                <!-- <div class="mySlides fade">
-                                <div class="numbertext">1 / 3</div>
-                                <img src="img1.jpg" style="width:100%">
-                                <div class="text">Caption Text</div>
-                                </div> -->
 
                                 <?php 
                                 $noi = count($tro['images']);
@@ -414,6 +422,7 @@ if (isset($_COOKIE['username'])) {
             </div>
         </div>
     </body>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="./script.js"></script>
    
     <script>

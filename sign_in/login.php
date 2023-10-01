@@ -20,8 +20,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     echo '2';
                     $username = $dataArray[$i]['username'];
                     $sex = $dataArray[$i]['sex'];
+                    $id = $dataArray[$i]['id'];
+                    $role = $dataArray[$i]['role'];
                     setcookie('username', $username, time() + 3600, '/');
                     setcookie('avatar', $sex . ".png", time() + 3600, '/');
+                    setcookie('id',$id , time() + 3600, '/');
+                    setcookie('role',$role , time() + 3600, '/');
 
                 }else {
                     echo '1';

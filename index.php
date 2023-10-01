@@ -20,8 +20,8 @@ if (isset($_COOKIE['username'])) {
     }
 
 } else {
-    header("Location: http://trotot.infinityfreeapp.com/sign_in");
-    // header("Location: http://127.0.0.1/sign_in");
+    // header("Location: http://trotot.infinityfreeapp.com/sign_in");
+    header("Location: http://127.0.0.1/sign_in");
     exit(); // Make sure to exit after the redirect
 } 
 ?>
@@ -151,6 +151,15 @@ if (isset($_COOKIE['username'])) {
                         aria-selected="false"
                         >Cho thuê</a
                     >
+                    <script>
+                        var choThue = document.querySelector("#Contact-tab");
+                        choThue.addEventListener("click",() => {
+                            if(getCookie('role') == '1') {
+                                swal("Lỗi", "Phần này chỉ dành cho người cho thuê")
+                                document.querySelector("#Home-tab").click();
+                            }
+                        });
+                    </script>
                 </li>
                 <li
                     style="flex: 1; flex-direction: row-reverse; display: flex"
@@ -241,10 +250,10 @@ if (isset($_COOKIE['username'])) {
                                     <div class="col-md-12 mb-3">
                                         <div class="card p-1">
                                             <div class="row no-gutters">
-                                                <div class="col-md-4">
+                                                <div class="col-md-3">
                                                     <img width="300" height="170" src="'.$img.'" alt="Image" class="card-img">
                                                 </div>
-                                                <div class="col-md-6">
+                                                <div class="col-md-7">
                                                     <div class="card-body">
                                                         <h5 class="card-title"><a class="card-text two-line-ellipsis" target="_blank" href="tro.php?index='.$i.'">'.($i + 1).'. '.$title.'</a></h5>
                                                         <p class="card-text two-line-ellipsis">'.$content.'</p>
@@ -277,7 +286,7 @@ if (isset($_COOKIE['username'])) {
                 </div>
                 <div
                     id="Product"
-                    class="tab-pane fade <?php if($tab2 == 'active') echo 'show active'; ?>"
+                    class="tab-pane fade <?php echo 'show '.$tab2; ?>"
                     role="tabpanel"
                     aria-labelledby="Product-tab"
                 >
@@ -288,14 +297,59 @@ if (isset($_COOKIE['username'])) {
                 </div>
                 <div
                     id="Contact" 
-                    class="tab-pane fade <?php if($tab3 == 'active') echo 'show active'; ?>"
+                    class="tab-pane fade <?php echo 'show '.$tab3; ?>"
                     role="tabpanel"
                     aria-labelledby="Contact-tab"
                 >
-                    <h3>Cho thuê</h3>
-                    <p>
-                        
-                    </p>
+                    <div class="card mt-1">
+                        <div class="card-header">Nhập thông tin trọ:</div>
+                        <div class="container mt-4">
+                            <form action="them_tro.php" method="POST">
+                                <div class="form-group">
+                                    <label for="title">Tiêu đề:</label>
+                                    <input type="text" class="form-control" id="title" name="title">
+                                </div>
+                                <div class="form-group">
+                                    <label for="price">Giá tiền:</label>
+                                    <input placeholder="ví dụ: 1000000" type="text" class="form-control" id="price" name="price">
+                                </div>
+                                <div class="form-group mt-1">
+                                    <label for="numImages">Nhập số lượng ảnh:</label>
+                                    <input type="number" id="numImages" name="numImages" min="1" />
+                                    <button type="button" class="btn btn-primary" onclick="createImageInputs()">
+                                        Tạo form điền link
+                                    </button>
+
+                                    <div id="imageInputs">
+                                        <!-- Image input fields will be generated here -->
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="area">Diện tích:</label>
+                                    <input placeholder="Chỉ cần ghi số" type="text" class="form-control" id="area" name="area">
+                                </div>
+                                <div class="form-group">
+                                    <label for="province">Tỉnh/thành:</label>
+                                    <input type="text" class="form-control" id="province" name="province">
+                                </div>
+                                <div class="form-group">
+                                    <label for="district">Quận/huyện:</label>
+                                    <input type="text" class="form-control" id="district" name="district">
+                                </div>
+                                <div class="form-group">
+                                    <label for="address">Số nhà/đường:</label>
+                                    <input placeholder="175, Tây Sơn..." type="text" class="form-control" id="address" name="address">
+                                </div>
+                                <div class="form-group">
+                                    <label for="content">Nội dung mô tả phòng:</label>
+                                    <textarea class="form-control" id="content" name="content" rows="4"></textarea>
+                                </div>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary m-1">Gửi admin phê duyệt</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -318,6 +372,6 @@ if (isset($_COOKIE['username'])) {
         </div>
     
     </body>
-    
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="./script.js"></script>
 </html>

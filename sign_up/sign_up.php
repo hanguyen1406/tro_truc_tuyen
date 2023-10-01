@@ -11,7 +11,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Get the new JSON data from the POST request
     $newData = json_decode(file_get_contents('php://input'), true);
-    $newData['id'] = count($dataArray);
+    $noa = count($dataArray);
+
+    for ($i=0; $i < $noa; $i++) { 
+        if($dataArray[$i]['email'] == $newData['email']) {
+            echo "0";
+            exit();
+        }
+    }
+
+    $newData['id'] = $noa;
     // Append the new data to the array
     $dataArray[] = $newData;
 
@@ -22,6 +31,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     file_put_contents($filePath, $updatedData);
 
     // Optionally, you can send a response back to the client
-    echo 'signed';
+    echo '1';
 }
 ?>

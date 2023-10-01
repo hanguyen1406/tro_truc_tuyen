@@ -8,11 +8,11 @@ var sex = document.querySelector("#sex");
 var sdt = document.querySelector("#sdt");
 sign_up.addEventListener("click", () => {
     // console.log(dangTk.value);
-    if (email.value == "" || password.value == "") {
-        swal("Lỗi", "Bạn chưa nhập email hoặc mật khẩu");
+    if (email.value == "" || password.value == "" ||username.value == '') {
+        swal("Lỗi", "Bạn nhập thiếu thông tin đăng ký");
     } else {
         if (password.value != re_password.value) {
-            swal("Mật khẩu không khớp!");
+            swal("Lỗi","Mật khẩu không khớp!");
         } else {
             var user = {
                 email: email.value,
@@ -34,13 +34,15 @@ sign_up.addEventListener("click", () => {
                 .then((data) => {
                     // console.log(data);
                     // You can handle the response as needed
-                    if (data == "signed") {
+                    if (data == "1") {
                         swal("Đăng ký thành công, trở về trang chủ").then(
                             () => {
                                 // window.location.href = "http://trotot.infinityfreeapp.com/";
                                 window.location.href = "http://127.0.0.1";
                             }
                         );
+                    }else {
+                        swal("Lỗi","Email đã tồn tại, vui lòng nhập email khác");
                     }
                 })
                 .catch((error) => {
