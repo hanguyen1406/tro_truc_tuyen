@@ -4,13 +4,8 @@
         "password": "123",
         "username": "hanguyen1406",
         "role": "1",
-        "sex": "0"
-    },
-    {
-        "email": "hgnguyen@gmail.com",
-        "password": "123",
-        "username": "linh",
-        "role": "1",
-        "sex": "1"
+        "sex": "0",
+        "std": "+84367794146",
+        "id": 0
     }
 ]

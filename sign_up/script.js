@@ -5,6 +5,7 @@ var re_password = document.querySelector("#re_password");
 var username = document.querySelector("#username");
 var dangTk = document.querySelector("#role");
 var sex = document.querySelector("#sex");
+var sdt = document.querySelector("#sdt");
 sign_up.addEventListener("click", () => {
     // console.log(dangTk.value);
     if (email.value == "" || password.value == "") {
@@ -18,7 +19,8 @@ sign_up.addEventListener("click", () => {
                 password: password.value,
                 username: username.value,
                 role: dangTk.value,
-                sex: sex.value,
+                sex: sex.value, 
+                std: sdt.value
             };
             // console.log(user);
             fetch("sign_up.php", {

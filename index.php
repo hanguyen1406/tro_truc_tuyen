@@ -1,8 +1,24 @@
 <?php 
 $username = '';
 if (isset($_COOKIE['username'])) {
+    $tab1 = 'active';
+    $tab2 = '';
+    $tab3 = '';
     $username = $_COOKIE['username'];
-    
+    if(isset($_GET['tab'])) {
+        $tab = $_GET['tab'];
+        switch($tab) {
+            case '1': 
+                $tab1 = '';
+                $tab2 = 'active';
+                break;   
+            case '2':
+                $tab1 = '';
+                $tab3 = 'active';
+                break;  
+        }
+    }
+
 } else {
     // header("Location: http://trotot.infinityfreeapp.com/sign_in");
     header("Location: http://127.0.0.1/sign_in");
@@ -80,8 +96,8 @@ if (isset($_COOKIE['username'])) {
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
         <title>Bootstrap 5.3 Example</title>
     </head>
-    <body style="background-image: url('./images/bg.png'); padding: 15px">
-        <div class="container">
+    <body style="background-image: url('./images/bg.png')">
+        <div class="">
             <style>
                 @keyframes slide {
                     0% {
@@ -99,10 +115,10 @@ if (isset($_COOKIE['username'])) {
                 }
             </style>
             <p style="font-size: 25px" class="animated-text">Trọ Trực Tuyến: Website thuê trọ uy tín chất lượng số 1 Việt Nam.</p>
-            <ul id="nav-tab" style="background-color: aliceblue" class="nav nav-tabs sticky-top p-2 rounded">
+            <ul id="nav-tab" style="background-color: aliceblue" class="nav nav-tabs sticky-top p-2">
                 <li class="nav-item">
                     <a
-                        class="nav-link active"
+                        class="nav-link <?php echo $tab1 ?>"
                         id="Home-tab"
                         data-bs-toggle="tab"
                         href="#Home"
@@ -114,7 +130,7 @@ if (isset($_COOKIE['username'])) {
                 </li>
                 <li class="nav-item">
                     <a
-                        class="nav-link"
+                        class="nav-link <?php echo $tab2 ?>"
                         id="Product-tab"
                         data-bs-toggle="tab"
                         href="#Product"
@@ -126,7 +142,7 @@ if (isset($_COOKIE['username'])) {
                 </li>
                 <li class="nav-item">
                     <a
-                        class="nav-link"
+                        class="nav-link <?php echo $tab3 ?>"
                         id="Contact-tab"
                         data-bs-toggle="tab"
                         href="#Contact"
@@ -138,10 +154,10 @@ if (isset($_COOKIE['username'])) {
                 </li>
                 <li
                     style="flex: 1; flex-direction: row-reverse; display: flex"
-                    class="nav-item"
+                    class="nav-item "
                 >
                 
-                <button class="btn btn-secondary" id="user_btn">
+                <button class="btn shadow" id="user_btn">
                 <img style="height: 20px;" src="../images/sex/<?php
                     $avatar = $_COOKIE['avatar'];
                     echo $avatar;
@@ -158,10 +174,10 @@ if (isset($_COOKIE['username'])) {
                 </li>
             </ul>
 
-            <div class="tab-content">
+            <div class="tab-content container">
                 <div
                     id="Home"
-                    class="tab-pane fade show active"
+                    class="tab-pane fade <?php if($tab1 == 'active') echo 'show active'; ?>"
                     role="tabpanel"
                     aria-labelledby="Home-tab"
                 >
@@ -172,7 +188,7 @@ if (isset($_COOKIE['username'])) {
                             $existingData = file_get_contents($filePath);
                             // Decode the JSON data into a PHP array
                             $data = json_decode($existingData, true);
-                            echo $data['count'];
+                            echo count($data['data']);
                         ?> phòng trọ:</h3>
                         <div class="d-flex align-items-center">
                             <b class="m-1">Sắp xếp theo:</b>
@@ -196,7 +212,8 @@ if (isset($_COOKIE['username'])) {
                             }
                         </style>
                             <?php 
-                            for ($i = 0; $i < $data['count']; $i++) {
+                            date_default_timezone_set('Asia/Bangkok');
+                            for ($i = 0; $i < count($data['data']); $i++) {
                                 $title = $data['data'][$i]['title'];
                                 $img = $data['data'][$i]['images'][0];
                                 $price = $data['data'][$i]['price'];
@@ -204,30 +221,45 @@ if (isset($_COOKIE['username'])) {
                                 $address = $data['data'][$i]['address'];
                                 $province = $data['data'][$i]['province'];
                                 $district = $data['data'][$i]['district'];
-                                $currentDate = date("Y-m-d H:i:s"); // Format: YYYY-MM-DD HH:MM:SS
+                                $currentDate = date("d-m-Y H:i:s"); // Format: YYYY-MM-DD HH:MM:SS
                                 $status = $data['data'][$i]['status'];
+                                $content = $data['data'][$i]['content'];
+                                $buy_icon = '';
+                                if($status == 1) {
+                                    $status = "Đặt ngay";
+                                    $btn_display = "primary";
+                                    $buy_icon = '<i class="fas fa-shopping-cart m-1"></i>';
+                                }else {
+                                    $status = "Đã hết";
+                                    $btn_display = "danger";
+
+                                }
+
+                                
                                 echo 
                                 '<div class="row">
                                     <div class="col-md-12 mb-3">
                                         <div class="card p-1">
                                             <div class="row no-gutters">
                                                 <div class="col-md-4">
-                                                    <img width="300" height="200" src="../images/'.$img.'" alt="Image" class="card-img">
+                                                    <img width="300" height="170" src="'.$img.'" alt="Image" class="card-img">
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="card-body">
-                                                        <h5 class="card-title">'.($i + 1).'. '.$title.'</h5>
-                                                        <p class="card-text two-line-ellipsis">Some example text for Card 1. You can add more content here. Some example text for Card 1. You can add more content here.</p>
+                                                        <h5 class="card-title"><a class="card-text two-line-ellipsis" target="_blank" href="tro.php?index='.$i.'">'.($i + 1).'. '.$title.'</a></h5>
+                                                        <p class="card-text two-line-ellipsis">'.$content.'</p>
                                                         <b>Giá tiền:</b> '.$price.' vnđ<br>
                                                         <b>Địa chỉ:</b> '.$address.', '.$district.', '.$province.'<br>
                                                         <b>Đăng tải lúc:</b> '.$currentDate.'<br>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-2 d-flex justify-content-center">
-                                                    <div class="card m-1">
-                                                        <div class="card-body">
-                                                            <div class="btn btn-primary">
-                                                            '.$status.'
+                                                <div class="col-md-2">
+                                                    <div class="m-2">
+                                                        <div class="text-centers d-flex justify-content-center">
+                                                            <div class="btn btn-'.$btn_display.' border shadow-sm">
+                                                                <a target="_blank" style="color:white" href="tro.php?index='.$i.'">
+                                                                '.$buy_icon.$status.'
+                                                                </a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -245,7 +277,7 @@ if (isset($_COOKIE['username'])) {
                 </div>
                 <div
                     id="Product"
-                    class="tab-pane fade"
+                    class="tab-pane fade <?php if($tab2 == 'active') echo 'show active'; ?>"
                     role="tabpanel"
                     aria-labelledby="Product-tab"
                 >
@@ -255,8 +287,8 @@ if (isset($_COOKIE['username'])) {
                     </p>
                 </div>
                 <div
-                    id="Contact"
-                    class="tab-pane fade"
+                    id="Contact" 
+                    class="tab-pane fade <?php if($tab3 == 'active') echo 'show active'; ?>"
                     role="tabpanel"
                     aria-labelledby="Contact-tab"
                 >
@@ -268,5 +300,19 @@ if (isset($_COOKIE['username'])) {
             </div>
         </div>
     </body>
+    <footer class="mt-1">
+        
+            
+        <div class="text-center" style="background-color: white;">Công ty TNHH Trọ Trực Tuyến - Người đại diện pháp luật: Vũ Trường Giang
+        <br>Địa chỉ: 175 Tây Sơn, Đống Đa, Hà Nội; Email: trogiup@chotructuyen.vn - Tổng đài CSKH: 12345678 (1.000đ/phút)
+    
+        <br>Liên kết<br><img src="https://static.chotot.com/storage/default/facebook.svg"/>
+        <img src="https://static.chotot.com/storage/default/youtube.svg"/>
+        <img src="https://static.chotot.com/storage/default/linkedin.svg"/>
+        <br>Chứng nhận<br><img src="https://static.chotot.com/storage/default/certificate.webp"/>
+
+        
+    </div>
+    </footer>
     <script src="./script.js"></script>
 </html>

@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Get the new JSON data from the POST request
     $newData = json_decode(file_get_contents('php://input'), true);
-
+    $newData['id'] = count($dataArray);
     // Append the new data to the array
     $dataArray[] = $newData;
 
