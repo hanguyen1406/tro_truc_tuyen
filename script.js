@@ -82,23 +82,43 @@ submit.addEventListener("click", () => {
             },
         })
             .then((response) => response.text())
-            .then((data) => {
-                swal(
+            .then(async (data) => {
+                await swal(
                     "Đăng bài thành công, admin sẽ sớm kiểm duyệt bài viết của bạn"
                 );
-                window.location.href = "127.0.0.1";
+                window.location.href = "http://127.0.0.1";
             })
             .catch((error) => {
                 console.error("Error:", error);
             });
     }
 });
-// Hide the context menu when clicking outside of it
-document.querySelector(".tab-content").addEventListener("click", () => {
-    hideContextMenu();
-});
 
-// Hide the context menu when clicking the Sign Out button
+document
+    .querySelector(".tab-content")
+    .addEventListener("click", hideContextMenu);
+
+function datTro(index) {
+    fetch("dat_tro.php", {
+        method: "POST",
+        body: JSON.stringify({ index: index }), // Convert the JavaScript object to a JSON string
+        headers: {
+            "Content-Type": "application/json", // Set the content type to JSON
+        },
+    })
+        .then((response) => response.text())
+        .then((data) => {
+            if (data == "1") {
+                swal("Đặt trọ thành công");
+            } else {
+                swal("Lỗi", "Bạn chỉ được đặt duy nhất 1 phòng trọ");
+            }
+        })
+        .catch((error) => {
+            console.error("Error:", error);
+        });
+}
+
 signOutBtn.addEventListener("click", () => {
     hideContextMenu();
     fetch("./sign_out.php")

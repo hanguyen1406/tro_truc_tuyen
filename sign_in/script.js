@@ -8,15 +8,18 @@ document.querySelector("#sign_in").addEventListener("click", () => {
     } else {
         fetch("login.php", {
             method: "POST",
-            body: JSON.stringify(user), // Convert the JavaScript object to a JSON string
+            body: JSON.stringify(user),
             headers: {
-                "Content-Type": "application/json", // Set the content type to JSON
+                "Content-Type": "application/json", 
             },
         })
             .then((response) => response.text())
             .then((data) => {
-                console.log(data);
-                // You can handle the response as needed
+                // console.log(data);
+                if(data == -1) {
+                    window.location.href = "http://127.0.0.1/admin";
+                    
+                }
                 if (data == 0) {
                     // console.log(email.value);
                     swal("Email không tồn tại");
@@ -27,7 +30,6 @@ document.querySelector("#sign_in").addEventListener("click", () => {
                         // window.location.href = "http://trotot.infinityfreeapp.com/";
                         window.location.href = "http://127.0.0.1";
 
-                        // Set the cookie with user data
                     });
                 }
             })

@@ -20,7 +20,8 @@ sign_up.addEventListener("click", () => {
                 username: username.value,
                 role: dangTk.value,
                 sex: sex.value, 
-                std: sdt.value
+                std: sdt.value,
+                idtro: -1
             };
             // console.log(user);
             fetch("sign_up.php", {

@@ -6,7 +6,8 @@
         "role": "1",
         "sex": "0",
         "std": "+84367794146",
-        "id": 0
+        "id": 0,
+        "idtro": 1
     },
     {
         "email": "hgnguyen@gmail.com",
@@ -15,6 +16,7 @@
         "role": "2",
         "sex": "1",
         "std": "+84367794146",
-        "id": 1
+        "id": 0,
+        "idtro": -1
     }
 ]

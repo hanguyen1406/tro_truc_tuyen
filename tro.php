@@ -169,6 +169,12 @@ if (isset($_COOKIE['username'])) {
                 
                 <div class="context-menu" id="contextMenu">
                     <ul>
+                        <script>
+                            document
+                            .querySelector(".tab-content")
+                            .addEventListener("click", hideContextMenu);
+
+                        </script>
                         <li><p href="#" id="signOutBtn">Sign Out</p></li>
                     </ul>
                 </div>
@@ -348,7 +354,10 @@ if (isset($_COOKIE['username'])) {
                                     <div class="text-center">
                                         <?php 
                                         if($tro['status'] == 1) {
-                                            echo '<div class="btn btn-primary shadow">Thuê ngay</div>';
+                                            echo '<div onclick="datTro('.$index.')" class="btn btn-primary shadow">Thuê ngay</div>';
+                                        }else {
+                                            echo '<div class="btn btn-danger shadow">Đã hết</div>';
+
                                         }
                                         ?>
                                         
@@ -406,13 +415,13 @@ if (isset($_COOKIE['username'])) {
                 </div>
             </div>
         </div>
-        <div class="row mt-1" style="background-color: white;">
-            <div class="col-md-9">
-                <div class="text-center m-4" >Công ty TNHH Trọ Trực Tuyến - Người đại diện pháp luật: Vũ Trường Giang
+        <div class="row mt-1 p-2" style="background-color: white;">
+            <div class="col-md-10 mt-5">
+                <div class="text-center" >Công ty TNHH Trọ Trực Tuyến - Người đại diện pháp luật: Vũ Trường Giang
                     <br>Địa chỉ: 175 Tây Sơn, Đống Đa, Hà Nội; Email: trogiup@chotructuyen.vn - Tổng đài CSKH: 12345678 (1.000đ/phút)
                 </div>
             </div>
-            <div class="col-md-3 text-center">
+            <div class="col-md-2 text-center">
                 <div>
                     <br>Liên kết<br><img src="https://static.chotot.com/storage/default/facebook.svg"/>
                     <img src="https://static.chotot.com/storage/default/youtube.svg"/>

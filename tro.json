@@ -4,7 +4,7 @@
         "censor": 1,
         "title": "Tr\u1ecd gi\u00e1 r\u1ebb \u1edf \u0110\u1ed1ng \u0110a, H\u00e0 n\u1ed9i",
         "price": "1000000",
-        "status": 1,
+        "status": 0,
         "images": [
             "https:\/\/scontent.fhph1-1.fna.fbcdn.net\/v\/t39.30808-6\/383839074_865953148205416_4212905430298683684_n.jpg?stp=dst-jpg_p118x118&_nc_cat=110&ccb=1-7&_nc_sid=4c1e7d&_nc_ohc=6JIkm6F_Kd0AX9E0x1z&_nc_ht=scontent.fhph1-1.fna&oh=00_AfC28yp88s-7CeFmABOylB3qtZ_S5IHxKHNp2b37Zv9Gmw&oe=651B11C2",
             "https:\/\/scontent.fhph1-2.fna.fbcdn.net\/v\/t39.30808-6\/381179875_630482319209964_7075800980798878164_n.jpg?stp=dst-jpg_s261x260&_nc_cat=101&ccb=1-7&_nc_sid=6a0516&_nc_ohc=BIVS390Skq8AX_t-oTf&_nc_ht=scontent.fhph1-2.fna&oh=00_AfCGyhqeonFvpnyBCjpRGFvM2qALn8Z2dR7vo9IG9q8fIA&oe=651B7DBD"
@@ -108,11 +108,14 @@
         "id": 5
     },
     {
-        "censor": 0,
+        "censor": 1,
         "title": "tro chua dc kiem duyet",
         "price": "12",
         "status": 1,
-        "images": [],
+        "images": [
+            "hii",
+            "hello"
+        ],
         "area": "12",
         "province": "hn",
         "district": "dd",
@@ -124,94 +127,20 @@
     },
     {
         "censor": 0,
-        "title": "",
-        "price": "",
-        "status": 1,
-        "images": [],
-        "area": "",
-        "province": "",
-        "district": "",
-        "address": "",
-        "content": "",
-        "userid": 1,
-        "time": "02-10-2023 06:29:39",
-        "id": 7
-    },
-    {
-        "censor": 0,
-        "title": "",
-        "price": "",
-        "status": 1,
-        "images": [],
-        "area": "",
-        "province": "",
-        "district": "",
-        "address": "",
-        "content": "",
-        "userid": 1,
-        "time": "02-10-2023 06:34:09",
-        "id": 8
-    },
-    {
-        "censor": 0,
-        "title": "hi",
-        "price": "",
-        "status": 1,
-        "images": [],
-        "area": "",
-        "province": "",
-        "district": "",
-        "address": "",
-        "content": "",
-        "userid": 1,
-        "time": "02-10-2023 06:41:34",
-        "id": 9
-    },
-    {
-        "censor": 0,
-        "title": "",
-        "price": "",
-        "status": 1,
-        "images": [],
-        "area": "",
-        "province": "",
-        "district": "",
-        "address": "",
-        "content": "",
-        "userid": 1,
-        "time": "02-10-2023 06:51:06",
-        "id": 10
-    },
-    {
-        "censor": 0,
-        "title": "",
-        "price": "",
-        "status": 1,
-        "images": [],
-        "area": "",
-        "province": "",
-        "district": "",
-        "address": "",
-        "content": "",
-        "userid": 1,
-        "time": "02-10-2023 06:52:57",
-        "id": 11
-    },
-    {
-        "censor": 0,
-        "title": "1",
-        "price": "1",
+        "title": "tro chua dc kiem duyet2",
+        "price": "12",
         "status": 1,
         "images": [
-            "1"
+            "hii",
+            "hello"
         ],
-        "area": "1",
-        "province": "1",
-        "district": "1",
-        "address": "1",
-        "content": "1",
+        "area": "12",
+        "province": "hn",
+        "district": "dd",
+        "address": "Quang ninh",
+        "content": "chua dc kiem duyet",
         "userid": 1,
-        "time": "02-10-2023 06:58:10",
-        "id": 12
+        "time": "02-10-2023 06:26:04",
+        "id": 7
     }
 ]

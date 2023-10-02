@@ -10,6 +10,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Decode the JSON data into a PHP array
     $dataArray = json_decode($existingData, true);
     
+    if($jsonData['email'] == 'admin' && $jsonData['password'] == 12345) {
+        echo '-1';
+        setcookie('admin', 'admin', time() + 3600, '/');
+        exit();
+    }
     if($dataArray !== null) {
         // echo json_encode($dataArray[0]['email'], JSON_PRETTY_PRINT);
         //0:chua dang ky, 1:sai mat khau, 2:dang nhap thanh cong
