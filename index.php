@@ -197,7 +197,7 @@ if (isset($_COOKIE['username'])) {
                             $existingData = file_get_contents($filePath);
                             // Decode the JSON data into a PHP array
                             $data = json_decode($existingData, true);
-                            echo count($data['data']);
+                            echo count($data);
                         ?> phòng trọ:</h3>
                         <div class="d-flex align-items-center">
                             <b class="m-1">Sắp xếp theo:</b>
@@ -222,62 +222,62 @@ if (isset($_COOKIE['username'])) {
                         </style>
                             <?php 
                             date_default_timezone_set('Asia/Bangkok');
-                            for ($i = 0; $i < count($data['data']); $i++) {
-                                $title = $data['data'][$i]['title'];
-                                $img = $data['data'][$i]['images'][0];
-                                $price = $data['data'][$i]['price'];
-                                $price = number_format($price);
-                                $address = $data['data'][$i]['address'];
-                                $province = $data['data'][$i]['province'];
-                                $district = $data['data'][$i]['district'];
-                                $currentDate = date("d-m-Y H:i:s"); // Format: YYYY-MM-DD HH:MM:SS
-                                $status = $data['data'][$i]['status'];
-                                $content = $data['data'][$i]['content'];
-                                $buy_icon = '';
-                                if($status == 1) {
-                                    $status = "Đặt ngay";
-                                    $btn_display = "primary";
-                                    $buy_icon = '<i class="fas fa-shopping-cart m-1"></i>';
-                                }else {
-                                    $status = "Đã hết";
-                                    $btn_display = "danger";
+                            for ($i = 0; $i < count($data); $i++) {
+                                if ($data[$i]['censor'] == 1) {
+                                    $title = $data[$i]['title'];
+                                    $img = $data[$i]['images'][0];
+                                    $price = $data[$i]['price'];
+                                    $price = number_format($price);
+                                    $address = $data[$i]['address'];
+                                    $province = $data[$i]['province'];
+                                    $district = $data[$i]['district'];
+                                    $currentDate = date("d-m-Y H:i:s"); // Format: YYYY-MM-DD HH:MM:SS
+                                    $status = $data[$i]['status'];
+                                    $content = $data[$i]['content'];
+                                    $buy_icon = '';
+                                    if($status == 1) {
+                                        $status = "Đặt ngay";
+                                        $btn_display = "primary";
+                                        $buy_icon = '<i class="fas fa-shopping-cart m-1"></i>';
+                                    }else {
+                                        $status = "Đã hết";
+                                        $btn_display = "danger";
 
-                                }
+                                    }
 
-                                
-                                echo 
-                                '<div class="row">
-                                    <div class="col-md-12 mb-3">
-                                        <div class="card p-1">
-                                            <div class="row no-gutters">
-                                                <div class="col-md-3">
-                                                    <img width="300" height="170" src="'.$img.'" alt="Image" class="card-img">
-                                                </div>
-                                                <div class="col-md-7">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title"><a class="card-text two-line-ellipsis" target="_blank" href="tro.php?index='.$i.'">'.($i + 1).'. '.$title.'</a></h5>
-                                                        <p class="card-text two-line-ellipsis">'.$content.'</p>
-                                                        <b>Giá tiền:</b> '.$price.' vnđ<br>
-                                                        <b>Địa chỉ:</b> '.$address.', '.$district.', '.$province.'<br>
-                                                        <b>Đăng tải lúc:</b> '.$currentDate.'<br>
+                                    echo 
+                                    '<div class="row">
+                                        <div class="col-md-12 mb-3">
+                                            <div class="card p-1">
+                                                <div class="row no-gutters">
+                                                    <div class="col-md-3">
+                                                        <img width="300" height="170" src="'.$img.'" alt="Image" class="card-img">
                                                     </div>
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <div class="m-2">
-                                                        <div class="text-centers d-flex justify-content-center">
-                                                            <div class="btn btn-'.$btn_display.' border shadow-sm">
-                                                                <a target="_blank" style="color:white" href="tro.php?index='.$i.'">
-                                                                '.$buy_icon.$status.'
-                                                                </a>
+                                                    <div class="col-md-7">
+                                                        <div class="card-body">
+                                                            <h5 class="card-title"><a class="card-text two-line-ellipsis" target="_blank" href="tro.php?index='.$i.'">'.($i + 1).'. '.$title.'</a></h5>
+                                                            <p class="card-text two-line-ellipsis">'.$content.'</p>
+                                                            <b>Giá tiền:</b> '.$price.' vnđ<br>
+                                                            <b>Địa chỉ:</b> '.$address.', '.$district.', '.$province.'<br>
+                                                            <b>Đăng tải lúc:</b> '.$currentDate.'<br>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <div class="m-2">
+                                                            <div class="text-centers d-flex justify-content-center">
+                                                                <div class="btn btn-'.$btn_display.' border shadow-sm">
+                                                                    <a target="_blank" style="color:white" href="tro.php?index='.$i.'">
+                                                                    '.$buy_icon.$status.'
+                                                                    </a>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div> ';   
-                                
+                                    </div> ';   
+                                }
                             }
                             ?>
                         </div>
@@ -304,14 +304,14 @@ if (isset($_COOKIE['username'])) {
                     <div class="card mt-1">
                         <div class="card-header">Nhập thông tin trọ:</div>
                         <div class="container mt-4">
-                            <form action="them_tro.php" method="POST">
+                            <div id="form">
                                 <div class="form-group">
                                     <label for="title">Tiêu đề:</label>
                                     <input type="text" class="form-control" id="title" name="title">
                                 </div>
                                 <div class="form-group">
                                     <label for="price">Giá tiền:</label>
-                                    <input placeholder="ví dụ: 1000000" type="text" class="form-control" id="price" name="price">
+                                    <input placeholder="Ví dụ: 1000000" type="text" class="form-control" id="price" name="price">
                                 </div>
                                 <div class="form-group mt-1">
                                     <label for="numImages">Nhập số lượng ảnh:</label>
@@ -330,24 +330,24 @@ if (isset($_COOKIE['username'])) {
                                 </div>
                                 <div class="form-group">
                                     <label for="province">Tỉnh/thành:</label>
-                                    <input type="text" class="form-control" id="province" name="province">
+                                    <input placeholder="Ví dụ: thành phố Hà Nội" type="text" class="form-control" id="province" name="province">
                                 </div>
                                 <div class="form-group">
                                     <label for="district">Quận/huyện:</label>
-                                    <input type="text" class="form-control" id="district" name="district">
+                                    <input placeholder="Ví dụ: quận Đống Đa" type="text" class="form-control" id="district" name="district">
                                 </div>
                                 <div class="form-group">
                                     <label for="address">Số nhà/đường:</label>
-                                    <input placeholder="175, Tây Sơn..." type="text" class="form-control" id="address" name="address">
+                                    <input placeholder="Ví dụ: 175, Tây Sơn..." type="text" class="form-control" id="address" name="address">
                                 </div>
                                 <div class="form-group">
                                     <label for="content">Nội dung mô tả phòng:</label>
                                     <textarea class="form-control" id="content" name="content" rows="4"></textarea>
                                 </div>
                                 <div class="text-center">
-                                    <button type="submit" class="btn btn-primary m-1">Gửi admin phê duyệt</button>
+                                    <button id="submit" class="btn btn-primary m-1">Gửi admin phê duyệt</button>
                                 </div>
-                            </form>
+                            </div>
                         </div>
                     </div>
                 </div>

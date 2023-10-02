@@ -12,7 +12,7 @@ if (isset($_COOKIE['username'])) {
     $jsonContents = file_get_contents($jsonFilePathTro);
     $jsonData = json_decode($jsonContents, true);
 
-    $tro = $jsonData['data'][$index];
+    $tro = $jsonData[$index];
     $userid = $tro['userid'];
     $jsonUserContents = file_get_contents($jsonFilePathUser);
     $jsonUserData = json_decode($jsonUserContents, true);
@@ -291,7 +291,8 @@ if (isset($_COOKIE['username'])) {
                                 $district = $tro['district'];    
                                 echo $address.', '.$district.', '.$province;
                                 ?><br>
-                                <img class="m-1" src="https://static.chotot.com/storage/icons/svg/order_timer.svg" width="20px"/><b>Đã đăng tải lúc: </b><?php
+                                <img class="m-1" src="https://static.chotot.com/storage/icons/svg/order_timer.svg" width="20px"/><b>Đã đăng tải lúc: </b>
+                                <?php
                                 date_default_timezone_set('Asia/Bangkok');  
                                 $currentDate = date("d-m-Y H:i:s"); 
                                 echo $currentDate;
@@ -377,15 +378,15 @@ if (isset($_COOKIE['username'])) {
                                     }
                                 </style>
                                 <?php 
-                                $not = count($jsonData['data']);
+                                $not = count($jsonData);
                                 for ($i=0; $i < $not; $i++) { 
-                                    if($jsonData['data'][$i]['userid'] == $tro['userid'] && $jsonData['data'][$i]['id'] != $index) {
-                                        $title = $jsonData['data'][$i]['title'];
-                                        $img = $jsonData['data'][$i]['images'][0];
-                                        $price = $jsonData['data'][$i]['price'];
+                                    if($jsonData[$i]['userid'] == $tro['userid'] && $jsonData[$i]['id'] != $index && $jsonData[$i]['censor'] == 1) {
+                                        $title = $jsonData[$i]['title'];
+                                        $img = $jsonData[$i]['images'][0];
+                                        $price = $jsonData[$i]['price'];
                                         $price = number_format($price);
-                                        $area = $jsonData['data'][$i]['area'];
-                                        $index = $jsonData['data'][$i]['id'];
+                                        $area = $jsonData[$i]['area'];
+                                        $index = $jsonData[$i]['id'];
                                         echo 
                                         '<div  class="card p-2 m-2">
                                             <img src="'.$img.'"/>
