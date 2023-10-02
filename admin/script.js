@@ -6,7 +6,7 @@ var submit = document.querySelector("#submit");
 function showContextMenu(event) {
     event.preventDefault();
     contextMenu.style.right = 10 + "px";
-    contextMenu.style.top = 52 + "px"; 
+    contextMenu.style.top = 52 + "px";
     contextMenu.style.display = "block";
 }
 // Function to hide the context menu
@@ -28,23 +28,27 @@ function getCookie(cookieName) {
 
 function hello(index) {
     // alert(index);
-    fetch('phe_duyet.php', {
-        method: 'POST',
+    fetch("phe_duyet.php", {
+        method: "POST",
         headers: {
-            'Content-Type': 'application/json'
+            "Content-Type": "application/json",
         },
-        body: JSON.stringify({ index: index })
+        body: JSON.stringify({ index: index }),
     })
-    .then(response => response.text())
-    .then(async data => {
-        await alert(data);
-        window.location.href = "http://127.0.0.1/admin"; 
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
+        .then((response) => response.text())
+        .then((data) => {
+            if (data == 1) {
+                // window.location.href = "http://127.0.0.1/admin";
+                swal("Phê duyệt thành công").then(() => {
+                    window.location.href =
+                        "http://trotot.infinityfreeapp.com/admin";
+                });
+            }
+        })
+        .catch((error) => {
+            console.error("Error:", error);
+        });
 }
-
 
 // Show the context menu on right-click
 usernameBtn.addEventListener("click", showContextMenu);

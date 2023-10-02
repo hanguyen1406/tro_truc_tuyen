@@ -197,7 +197,11 @@ if (isset($_COOKIE['username'])) {
                             $existingData = file_get_contents($filePath);
                             // Decode the JSON data into a PHP array
                             $data = json_decode($existingData, true);
-                            echo count($data);
+                            $cnt = 0;
+                            for ($i=0; $i < count($data); $i++) { 
+                                if($data[$i]['censor'] == 1) $cnt++;
+                            }
+                            echo $cnt;
                         ?> phòng trọ:</h3>
                         <div class="d-flex align-items-center">
                             <b class="m-1">Sắp xếp theo:</b>
