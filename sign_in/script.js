@@ -17,8 +17,9 @@ document.querySelector("#sign_in").addEventListener("click", () => {
             .then((data) => {
                 // console.log(data);
                 if(data == -1) {
-                    window.location.href = "http://127.0.0.1/admin";
-                    
+                    // window.location.href = "http://127.0.0.1/admin";
+                    window.location.href = "http://trotot.infinityfreeapp.com/admin";
+
                 }
                 if (data == 0) {
                     // console.log(email.value);
@@ -27,8 +28,8 @@ document.querySelector("#sign_in").addEventListener("click", () => {
                     swal("Sai mật khẩu");
                 } else if (data == 2) {
                     swal("Đăng nhập thành công").then(() => {
-                        // window.location.href = "http://trotot.infinityfreeapp.com/";
-                        window.location.href = "http://127.0.0.1";
+                        window.location.href = "http://trotot.infinityfreeapp.com/";
+                        // window.location.href = "http://127.0.0.1";
 
                     });
                 }

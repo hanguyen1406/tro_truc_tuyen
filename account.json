@@ -1,15 +1,5 @@
 [
     {
-        "email": "hgnguyen47347714@gmail.com",
-        "password": "123",
-        "username": "hanguyen1406",
-        "role": "1",
-        "sex": "0",
-        "std": "+84367794146",
-        "id": 0,
-        "idtro": 1
-    },
-    {
         "email": "hgnguyen@gmail.com",
         "password": "123",
         "username": "linh",
@@ -18,5 +8,15 @@
         "std": "+84367794146",
         "id": 0,
         "idtro": -1
+    },
+    {
+        "email": "hgnguyen47347714@gmail.com",
+        "password": "123",
+        "username": "linh",
+        "role": "1",
+        "sex": "0",
+        "std": "+84367794146",
+        "idtro": -1,
+        "id": 1
     }
 ]

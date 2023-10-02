@@ -19,8 +19,8 @@ if (isset($_COOKIE['username'])) {
     
     
 } else {
-    // header("Location: http://trotot.infinityfreeapp.com/sign_in");
-    header("Location: http://127.0.0.1/sign_in");
+    header("Location: http://trotot.infinityfreeapp.com/sign_in");
+    // header("Location: http://127.0.0.1/sign_in");
     exit(); // Make sure to exit after the redirect
 } 
 ?>
@@ -121,7 +121,7 @@ if (isset($_COOKIE['username'])) {
                     <a
                         class="nav-link"
                         id="Home-tab"
-                        href="http://127.0.0.1"
+                        href="http://trotot.infinityfreeapp.com"
                         >Trang chủ</a
                     >
                 </li>
@@ -129,7 +129,7 @@ if (isset($_COOKIE['username'])) {
                     <a
                         class="nav-link"
                         id="Product-tab"
-                        href="http://127.0.0.1?tab=1"
+                        href="http://trotot.infinityfreeapp.com?tab=1"
                         >Tìm trọ</a
                     >
                 </li>
@@ -148,7 +148,8 @@ if (isset($_COOKIE['username'])) {
 
                             }else {
                                 // href="http://127.0.0.1?tab=2"
-                                window.location.href = "http://127.0.0.1?tab=2";
+                                // trotot.infinityfreeapp.com
+                                window.location.href = "http://trotot.infinityfreeapp.com?tab=2";
 
                             }
                         });
