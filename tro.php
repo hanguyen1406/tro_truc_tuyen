@@ -16,7 +16,10 @@ if (isset($_COOKIE['username'])) {
     $userid = $tro['userid'];
     $jsonUserContents = file_get_contents($jsonFilePathUser);
     $jsonUserData = json_decode($jsonUserContents, true);
-    //duy
+    
+
+
+    // aloo
     
 } else {
     header("Location: http://trotot.infinityfreeapp.com/sign_in");
