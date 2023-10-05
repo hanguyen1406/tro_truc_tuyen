@@ -18,5 +18,15 @@
         "std": "+84367794146",
         "idtro": -1,
         "id": 1
+    },
+    {
+        "email": "a123@gmail.com",
+        "password": "12",
+        "username": "duy",
+        "role": "2",
+        "sex": "0",
+        "std": "+8412345678",
+        "idtro": -1,
+        "id": 2
     }
 ]

@@ -41,7 +41,7 @@ function hello(index) {
                 // window.location.href = "http://127.0.0.1/admin";
                 swal("Phê duyệt thành công").then(() => {
                     window.location.href =
-                        "http://trotot.infinityfreeapp.com/admin";
+                        "http://127.0.0.1/admin";
                 });
             }
         })
@@ -64,7 +64,7 @@ signOutBtn.addEventListener("click", () => {
     fetch("./sign_out.php")
         .then((response) => response)
         .then((data) => {
-            window.location.href = "http://trotot.infinityfreeapp.com/";
+            window.location.href = "http://127.0.0.1/";
             // window.location.href = "http://127.0.0.1/";
         })
         .catch((error) => {
