@@ -20,7 +20,7 @@ if (isset($_COOKIE['username'])) {
     }
 
 } else {
-    header("Location: http://trotot.infinityfreeapp.com/sign_in");
+    header("Location: http://t127.0.0.1/sign_in");
     // header("Location: http://127.0.0.1/sign_in");
     exit(); // Make sure to exit after the redirect
 } 
