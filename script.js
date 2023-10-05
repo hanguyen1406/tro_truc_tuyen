@@ -121,7 +121,7 @@ function datTro(index) {
         });
 }
 trocuatoi.addEventListener("click", () => {
-    alert("hello")
+    window.location.href = "http://127.0.0.1/trocuatoi.php/";
 });
 
 

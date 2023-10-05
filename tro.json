@@ -16,5 +16,59 @@
         "time": "",
         "userid": 0,
         "content": "Tr\u1ecd gi\u00e1 r\u1ebb cho sinh vi\u00ean c\u00e1c tr\u01b0\u1eddng \u0111\u1ea1i h\u1ecdc Th\u1ee7y L\u1ee3i, Ng\u00e2n H\u00e0ng. Tr\u1ecd c\u00f3 di\u1ec7n t\u00edch blala, c\u00f3 \u0111i\u1ec1u h\u00f2a c\u00e1c ki\u1ec3u"
+    },
+    {
+        "id": 1,
+        "censor": 1,
+        "title": "Tr\u1ecd gi\u00e1 r\u1ebb \u1edf \u0110\u1ed1ng \u0110a, H\u00e0 n\u1ed9i",
+        "price": "1000000",
+        "status": 0,
+        "images": [
+            "https:\/\/scontent.fhph1-1.fna.fbcdn.net\/v\/t39.30808-6\/383839074_865953148205416_4212905430298683684_n.jpg?stp=dst-jpg_p118x118&_nc_cat=110&ccb=1-7&_nc_sid=4c1e7d&_nc_ohc=6JIkm6F_Kd0AX9E0x1z&_nc_ht=scontent.fhph1-1.fna&oh=00_AfC28yp88s-7CeFmABOylB3qtZ_S5IHxKHNp2b37Zv9Gmw&oe=651B11C2",
+            "https:\/\/scontent.fhph1-2.fna.fbcdn.net\/v\/t39.30808-6\/381179875_630482319209964_7075800980798878164_n.jpg?stp=dst-jpg_s261x260&_nc_cat=101&ccb=1-7&_nc_sid=6a0516&_nc_ohc=BIVS390Skq8AX_t-oTf&_nc_ht=scontent.fhph1-2.fna&oh=00_AfCGyhqeonFvpnyBCjpRGFvM2qALn8Z2dR7vo9IG9q8fIA&oe=651B7DBD"
+        ],
+        "area": "10",
+        "province": "Th\u00e0nh ph\u1ed1 H\u00e0 N\u1ed9i",
+        "district": "Qu\u1eadn \u0110\u1ed1ng \u0110a",
+        "address": "175 T\u00e2y S\u01a1n",
+        "time": "",
+        "userid": 0,
+        "content": "Tr\u1ecd gi\u00e1 r\u1ebb cho sinh vi\u00ean c\u00e1c tr\u01b0\u1eddng \u0111\u1ea1i h\u1ecdc Th\u1ee7y L\u1ee3i, Ng\u00e2n H\u00e0ng. Tr\u1ecd c\u00f3 di\u1ec7n t\u00edch blala, c\u00f3 \u0111i\u1ec1u h\u00f2a c\u00e1c ki\u1ec3u"
+    },
+    {
+        "id": 2,
+        "censor": 1,
+        "title": "tro cua user 2",
+        "price": "1000000",
+        "status": 0,
+        "images": [
+            "https:\/\/scontent.fhph1-1.fna.fbcdn.net\/v\/t39.30808-6\/383839074_865953148205416_4212905430298683684_n.jpg?stp=dst-jpg_p118x118&_nc_cat=110&ccb=1-7&_nc_sid=4c1e7d&_nc_ohc=6JIkm6F_Kd0AX9E0x1z&_nc_ht=scontent.fhph1-1.fna&oh=00_AfC28yp88s-7CeFmABOylB3qtZ_S5IHxKHNp2b37Zv9Gmw&oe=651B11C2",
+            "https:\/\/scontent.fhph1-2.fna.fbcdn.net\/v\/t39.30808-6\/381179875_630482319209964_7075800980798878164_n.jpg?stp=dst-jpg_s261x260&_nc_cat=101&ccb=1-7&_nc_sid=6a0516&_nc_ohc=BIVS390Skq8AX_t-oTf&_nc_ht=scontent.fhph1-2.fna&oh=00_AfCGyhqeonFvpnyBCjpRGFvM2qALn8Z2dR7vo9IG9q8fIA&oe=651B7DBD"
+        ],
+        "area": "10",
+        "province": "Th\u00e0nh ph\u1ed1 H\u00e0 N\u1ed9i",
+        "district": "Qu\u1eadn \u0110\u1ed1ng \u0110a",
+        "address": "175 T\u00e2y S\u01a1n",
+        "time": "",
+        "userid": 2,
+        "content": "Tr\u1ecd gi\u00e1 r\u1ebb cho sinh vi\u00ean c\u00e1c tr\u01b0\u1eddng \u0111\u1ea1i h\u1ecdc Th\u1ee7y L\u1ee3i, Ng\u00e2n H\u00e0ng. Tr\u1ecd c\u00f3 di\u1ec7n t\u00edch blala, c\u00f3 \u0111i\u1ec1u h\u00f2a c\u00e1c ki\u1ec3u"
+    },
+    {
+        "id": 3,
+        "censor": 1,
+        "title": "Tr\u1ecd gi\u00e1 r\u1ebb \u1edf \u0110\u1ed1ng \u0110a, H\u00e0 n\u1ed9i",
+        "price": "1000000",
+        "status": 0,
+        "images": [
+            "https:\/\/scontent.fhph1-1.fna.fbcdn.net\/v\/t39.30808-6\/383839074_865953148205416_4212905430298683684_n.jpg?stp=dst-jpg_p118x118&_nc_cat=110&ccb=1-7&_nc_sid=4c1e7d&_nc_ohc=6JIkm6F_Kd0AX9E0x1z&_nc_ht=scontent.fhph1-1.fna&oh=00_AfC28yp88s-7CeFmABOylB3qtZ_S5IHxKHNp2b37Zv9Gmw&oe=651B11C2",
+            "https:\/\/scontent.fhph1-2.fna.fbcdn.net\/v\/t39.30808-6\/381179875_630482319209964_7075800980798878164_n.jpg?stp=dst-jpg_s261x260&_nc_cat=101&ccb=1-7&_nc_sid=6a0516&_nc_ohc=BIVS390Skq8AX_t-oTf&_nc_ht=scontent.fhph1-2.fna&oh=00_AfCGyhqeonFvpnyBCjpRGFvM2qALn8Z2dR7vo9IG9q8fIA&oe=651B7DBD"
+        ],
+        "area": "10",
+        "province": "Th\u00e0nh ph\u1ed1 H\u00e0 N\u1ed9i",
+        "district": "Qu\u1eadn \u0110\u1ed1ng \u0110a",
+        "address": "175 T\u00e2y S\u01a1n",
+        "time": "",
+        "userid": 0,
+        "content": "Tr\u1ecd gi\u00e1 r\u1ebb cho sinh vi\u00ean c\u00e1c tr\u01b0\u1eddng \u0111\u1ea1i h\u1ecdc Th\u1ee7y L\u1ee3i, Ng\u00e2n H\u00e0ng. Tr\u1ecd c\u00f3 di\u1ec7n t\u00edch blala, c\u00f3 \u0111i\u1ec1u h\u00f2a c\u00e1c ki\u1ec3u"
     }
 ]
