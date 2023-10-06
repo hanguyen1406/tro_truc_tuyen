@@ -88,11 +88,7 @@ submit.addEventListener("click", () => {
                     "Đăng bài thành công, admin sẽ sớm kiểm duyệt bài viết của bạn"
                 );
                 // window.location.href = "http://127.0.0.1";
-<<<<<<< HEAD
                 window.location.href = "http://127.0.0.1";
-=======
-                window.location.href = "http://t127.0.0.1";
->>>>>>> bb55ebfef0beb1a50a538d6a86b06f1f7a949f45
             })
             .catch((error) => {
                 console.error("Error:", error);
@@ -134,11 +130,7 @@ signOutBtn.addEventListener("click", () => {
     fetch("./sign_out.php")
         .then((response) => response)
         .then((data) => {
-<<<<<<< HEAD
             window.location.href = "http://127.0.0.1/sign_in/";
-=======
-            window.location.href = "http://t127.0.0.1/sign_in/";
->>>>>>> bb55ebfef0beb1a50a538d6a86b06f1f7a949f45
             // window.location.href = "http://127.0.0.1/sign_in/";
         })
         .catch((error) => {

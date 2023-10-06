@@ -17,9 +17,6 @@ if (isset($_COOKIE['username'])) {
     $jsonUserContents = file_get_contents($jsonFilePathUser);
     $jsonUserData = json_decode($jsonUserContents, true);
     
-
-
-    // aloo
     
 } else {
     header("Location: http://127.0.0.1/sign_in");

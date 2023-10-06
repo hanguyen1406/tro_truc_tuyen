@@ -40,12 +40,8 @@ function hello(index) {
             if (data == 1) {
                 // window.location.href = "http://127.0.0.1/admin";
                 swal("Phê duyệt thành công").then(() => {
-<<<<<<< HEAD
                     window.location.href =
                         "http://127.0.0.1/admin";
-=======
-                    window.location.href = "http://t127.0.0.1/admin";
->>>>>>> bb55ebfef0beb1a50a538d6a86b06f1f7a949f45
                 });
             }
         })
@@ -68,11 +64,7 @@ signOutBtn.addEventListener("click", () => {
     fetch("./sign_out.php")
         .then((response) => response)
         .then((data) => {
-<<<<<<< HEAD
             window.location.href = "http://127.0.0.1/";
-=======
-            window.location.href = "http://t127.0.0.1/";
->>>>>>> bb55ebfef0beb1a50a538d6a86b06f1f7a949f45
             // window.location.href = "http://127.0.0.1/";
         })
         .catch((error) => {
