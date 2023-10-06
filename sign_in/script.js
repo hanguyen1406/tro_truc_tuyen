@@ -10,16 +10,20 @@ document.querySelector("#sign_in").addEventListener("click", () => {
             method: "POST",
             body: JSON.stringify(user),
             headers: {
-                "Content-Type": "application/json", 
+                "Content-Type": "application/json",
             },
         })
             .then((response) => response.text())
             .then((data) => {
                 // console.log(data);
-                if(data == -1) {
+                if (data == -1) {
                     // window.location.href = "http://127.0.0.1/admin";
+<<<<<<< HEAD
                     window.location.href = "http://127.0.0.1/admin";
 
+=======
+                    window.location.href = "http://t127.0.0.1/admin";
+>>>>>>> bb55ebfef0beb1a50a538d6a86b06f1f7a949f45
                 }
                 if (data == 0) {
                     // console.log(email.value);
@@ -28,9 +32,12 @@ document.querySelector("#sign_in").addEventListener("click", () => {
                     swal("Sai mật khẩu");
                 } else if (data == 2) {
                     swal("Đăng nhập thành công").then(() => {
+<<<<<<< HEAD
                         window.location.href = "http://127.0.0.1/";
+=======
+                        window.location.href = "http://t127.0.0.1/";
+>>>>>>> bb55ebfef0beb1a50a538d6a86b06f1f7a949f45
                         // window.location.href = "http://127.0.0.1";
-
                     });
                 }
             })

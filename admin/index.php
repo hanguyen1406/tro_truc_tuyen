@@ -2,7 +2,11 @@
 if (isset($_COOKIE['admin'])) { 
 
 } else {
+<<<<<<< HEAD
     header("Location: http://127.0.0.1/sign_in");
+=======
+    header("Location: http://t127.0.0.1/sign_in");
+>>>>>>> bb55ebfef0beb1a50a538d6a86b06f1f7a949f45
     // header("Location: http://127.0.0.1/sign_in");
     exit(); // 
 } 
@@ -167,7 +171,11 @@ if (isset($_COOKIE['admin'])) {
                                                     </div>
                                                     <div class="col-md-7">
                                                         <div class="card-body">
+<<<<<<< HEAD
                                                             <h5 class="card-title"><a class="card-text two-line-ellipsis" target="_blank" href="http://127.0.0.1/tro.php?index='.$i.'">'.$title.'</a></h5>
+=======
+                                                            <h5 class="card-title"><a class="card-text two-line-ellipsis" target="_blank" href="http://t127.0.0.1/tro.php?index='.$i.'">'.$title.'</a></h5>
+>>>>>>> bb55ebfef0beb1a50a538d6a86b06f1f7a949f45
                                                             <p class="card-text two-line-ellipsis">'.$content.'</p>
                                                             <b>Giá tiền:</b> '.$price.' vnđ<br>
                                                             <b>Địa chỉ:</b> '.$address.', '.$district.', '.$province.'<br>
