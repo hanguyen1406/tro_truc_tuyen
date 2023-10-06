@@ -1,6 +1,5 @@
 var contextMenu = document.getElementById("contextMenu");
 var usernameBtn = document.querySelector("#user_btn");
-var trocutoi = document.getElementById("trocuatoi");
 var signOutBtn = document.getElementById("signOutBtn");
 var submit = document.querySelector("#submit");
 // Function to display the context menu at the mouse position
@@ -120,10 +119,6 @@ function datTro(index) {
             console.error("Error:", error);
         });
 }
-trocuatoi.addEventListener("click", () => {
-    window.location.href = "http://127.0.0.1/trocuatoi.php/";
-});
-
 
 signOutBtn.addEventListener("click", () => {
     hideContextMenu();

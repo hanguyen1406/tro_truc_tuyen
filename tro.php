@@ -137,7 +137,7 @@ if (isset($_COOKIE['username'])) {
                     <a
                         class="nav-link"
                         id="Contact-tab"
-                        href="#"
+                        href="http://127.0.0.1?tab=2"
                         >Cho thuê</a
                     >
                     <script>
@@ -155,6 +155,16 @@ if (isset($_COOKIE['username'])) {
                         });
                     </script>
                 </li>
+                <li class="nav-item">
+                    <a
+                        class="nav-link"
+                        id="trocuatoi-tab"
+                        href="http://127.0.0.1?tab=3"
+                        >Trọ của tôi</a
+                    >
+                    
+                </li>
+                
                 <li
                     style="flex: 1; flex-direction: row-reverse; display: flex"
                     class="nav-item "

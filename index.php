@@ -4,6 +4,7 @@ if (isset($_COOKIE['username'])) {
     $tab1 = 'active';
     $tab2 = '';
     $tab3 = '';
+    $tab4 = '';
     $username = $_COOKIE['username'];
     if(isset($_GET['tab'])) {
         $tab = $_GET['tab'];
@@ -15,6 +16,10 @@ if (isset($_COOKIE['username'])) {
             case '2':
                 $tab1 = '';
                 $tab3 = 'active';
+                break;  
+            case '3':
+                $tab1 = '';
+                $tab4 = 'active';
                 break;  
         }
     }
@@ -161,6 +166,19 @@ if (isset($_COOKIE['username'])) {
                         });
                     </script>
                 </li>
+                <li class="nav-item">
+                    <a
+                        class="nav-link <?php echo $tab4 ?>"
+                        id="trocuatoi-tab"
+                        data-bs-toggle="tab"
+                        href="#trocuatoi"
+                        role="tab"
+                        aria-controls="trocuatoi"
+                        aria-selected="false"
+                        >Trọ của tôi</a
+                    >
+                    
+                </li>
                 <li
                     style="flex: 1; flex-direction: row-reverse; display: flex"
                     class="nav-item "
@@ -176,7 +194,7 @@ if (isset($_COOKIE['username'])) {
                 
                 <div class="context-menu" id="contextMenu">
                     <ul>
-                        <li><p href="#" id="trocuatoi">phòng trọ của tôi</p></li>
+                        
                         <li><p href="#" id="signOutBtn">Đăng xuất</p></li>
                     </ul>
                 </div>
@@ -355,6 +373,72 @@ if (isset($_COOKIE['username'])) {
                             </div>
                         </div>
                     </div>
+                </div>
+                <div id="trocuatoi" 
+                    class="tab-pane fade <?php echo 'show '.$tab4; ?>"
+                    role="tabpanel"
+                    aria-labelledby="Contact-tab">
+                    <?php 
+                    date_default_timezone_set('Asia/Bangkok');
+                    for ($i = 0; $i < count($data); $i++) {
+                        if ($data[$i]['censor'] == 1 && $data[$i]['userid'] == $_COOKIE['id']) {
+                            $title = $data[$i]['title'];
+                            $img = $data[$i]['images'][0];
+                            $price = $data[$i]['price'];
+                            $price = number_format($price);
+                            $address = $data[$i]['address'];
+                            $province = $data[$i]['province'];
+                            $district = $data[$i]['district'];
+                            $currentDate = date("d-m-Y H:i:s"); // Format: YYYY-MM-DD HH:MM:SS
+                            $status = $data[$i]['status'];
+                            $content = $data[$i]['content'];
+                            $buy_icon = '';
+                            if($status == 1) {
+                                $status = "Đặt ngay";
+                                $btn_display = "primary";
+                                $buy_icon = '<i class="fas fa-shopping-cart m-1"></i>';
+                            }else {
+                                $status = "Đã hết";
+                                $btn_display = "danger";
+
+                            }
+
+                            echo 
+                            '<div class="row">
+                                <div class="col-md-12 mb-3">
+                                    <div class="card p-1">
+                                        <div class="row no-gutters">
+                                            <div class="col-md-3">
+                                                <img width="300" height="170" src="'.$img.'" alt="Image" class="card-img">
+                                            </div>
+                                            <div class="col-md-7">
+                                                <div class="card-body">
+                                                    <h5 class="card-title"><a class="card-text two-line-ellipsis" target="_blank" href="capnhat.php?index='.$i.'">'.($i + 1).'. '.$title.'</a></h5>
+                                                    <p class="card-text two-line-ellipsis">'.$content.'</p>
+                                                    <b>Giá tiền:</b> '.$price.' vnđ<br>
+                                                    <b>Địa chỉ:</b> '.$address.', '.$district.', '.$province.'<br>
+                                                    <b>Đăng tải lúc:</b> '.$currentDate.'<br>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="m-2">
+                                                    <div class="text-centers d-flex justify-content-center">
+                                                        <div class="btn btn-success border shadow-sm">
+                                                            <a target="_blank" style="color:white" href="capnhat.php?index='.$i.'">
+                                                            Chỉnh sửa thông tin
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> ';   
+                        }
+                    }
+                    ?>
+                
                 </div>
             </div>
         </div>
