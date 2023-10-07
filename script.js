@@ -87,8 +87,9 @@ submit.addEventListener("click", () => {
                 await swal(
                     "Đăng bài thành công, admin sẽ sớm kiểm duyệt bài viết của bạn"
                 );
-                // window.location.href = "http://127.0.0.1";
-                window.location.href = "http://127.0.0.1/?tab=2";
+                // window.location.href = "http://trotot.infinityfreeapp.com";
+                window.location.href =
+                    "http://trotot.infinityfreeapp.com/?tab=2";
             })
             .catch((error) => {
                 console.error("Error:", error);
@@ -101,7 +102,7 @@ document.querySelector("#huy").addEventListener("click", () => {
         .then((response) => response.text()) // Parse the response as JSON
         .then(async (data) => {
             await swal(data);
-            window.location.href = "http://127.0.0.1?tab=4";
+            window.location.href = "http://trotot.infinityfreeapp.com?tab=4";
         })
         .catch((error) => {
             console.error("Error:", error);
@@ -124,7 +125,7 @@ function datTro(index) {
         .then(async (data) => {
             if (data == "1") {
                 await swal("Đặt trọ thành công");
-                window.location.href = `http://127.0.0.1/tro.php?index=${index}`;
+                window.location.href = `http://trotot.infinityfreeapp.com/tro.php?index=${index}`;
             } else if ((data = "2")) {
                 swal("Lỗi", "Chủ trọ không thể đặt trọ");
             } else {
@@ -141,8 +142,8 @@ signOutBtn.addEventListener("click", () => {
     fetch("./sign_out.php")
         .then((response) => response)
         .then((data) => {
-            window.location.href = "http://127.0.0.1/sign_in/";
-            // window.location.href = "http://127.0.0.1/sign_in/";
+            window.location.href = "http://trotot.infinityfreeapp.com/sign_in/";
+            // window.location.href = "http://trotot.infinityfreeapp.com/sign_in/";
         })
         .catch((error) => {
             console.error("Error:", error);

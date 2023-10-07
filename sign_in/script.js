@@ -10,15 +10,16 @@ document.querySelector("#sign_in").addEventListener("click", () => {
             method: "POST",
             body: JSON.stringify(user),
             headers: {
-                "Content-Type": "application/json", 
+                "Content-Type": "application/json",
             },
         })
             .then((response) => response.text())
             .then((data) => {
                 // console.log(data);
-                if(data == -1) {
-                    // window.location.href = "http://127.0.0.1/admin";
-                    window.location.href = "http://127.0.0.1/admin";
+                if (data == -1) {
+                    // window.location.href = "http://trotot.infinityfreeapp.com/admin";
+                    window.location.href =
+                        "http://trotot.infinityfreeapp.com/admin";
                 }
                 if (data == 0) {
                     // console.log(email.value);
@@ -27,11 +28,11 @@ document.querySelector("#sign_in").addEventListener("click", () => {
                     swal("Sai mật khẩu");
                 } else if (data == 2) {
                     swal("Đăng nhập thành công").then(() => {
-                        window.location.href = "http://127.0.0.1/";
-                        // window.location.href = "http://127.0.0.1";
-
+                        window.location.href =
+                            "http://trotot.infinityfreeapp.com/";
+                        // window.location.href = "http://trotot.infinityfreeapp.com";
                     });
-                }else if(data == 3) {
+                } else if (data == 3) {
                     swal("Tài khoản đã bị cấm!");
                 }
             })
