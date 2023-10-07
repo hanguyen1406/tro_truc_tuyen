@@ -7,15 +7,12 @@ if (isset($_COOKIE['username'])) {
     }
     // Specify the path to your JSON file
     $jsonFilePathTro = './tro.json';
-    $jsonFilePathUser = './account.json';
     
     $jsonContents = file_get_contents($jsonFilePathTro);
     $jsonData = json_decode($jsonContents, true);
 
     $tro = $jsonData[$index];
     $userid = $tro['userid'];
-    $jsonUserContents = file_get_contents($jsonFilePathUser);
-    $jsonUserData = json_decode($jsonUserContents, true);
     
     
 } else {
@@ -140,28 +137,14 @@ if (isset($_COOKIE['username'])) {
                         href="http://127.0.0.1?tab=2"
                         >Cho thuê</a
                     >
-                    <script>
-                        var choThue = document.querySelector("#Contact-tab");
-                        choThue.addEventListener("click",() => {
-                            if(getCookie('role') == '1') {
-                                swal("Lỗi", "Phần này chỉ dành cho người cho thuê")
-
-                            }else {
-                                // href="http://127.0.0.1?tab=2"
-                                // 127.0.0.1
-                                window.location.href = "http://127.0.0.1?tab=2";
-
-                            }
-                        });
-                    </script>
+                
                 </li>
                 <li class="nav-item">
                     <a
                         class="nav-link"
                         id="trocuatoi-tab"
                         href="http://127.0.0.1?tab=3"
-                        >Trọ của tôi</a
-                    >
+                        >Trọ của tôi</a>
                     
                 </li>
                 
@@ -180,13 +163,7 @@ if (isset($_COOKIE['username'])) {
                 
                 <div class="context-menu" id="contextMenu">
                     <ul>
-                        <script>
-                            document
-                            .querySelector(".tab-content")
-                            .addEventListener("click", hideContextMenu);
-
-                        </script>
-                        <li><p href="#" id="signOutBtn">Sign Out</p></li>
+                        <li><p href="#" id="signOutBtn">Đăng xuất</p></li>
                     </ul>
                 </div>
 
@@ -194,7 +171,59 @@ if (isset($_COOKIE['username'])) {
             </ul>
 
             <div class="tab-content container">
-                
+            <div class="card mt-1">
+                <div class="card-header">Nhập thông tin trọ:</div>
+                    <div class="container mt-4">
+                        <div id="form">
+                            <div class="form-group">
+                                <label for="title">Tiêu đề:</label>
+                                <input value="<?php echo $tro['title'] ?>" type="text" class="form-control" id="title" name="title">
+                            </div>
+                            <div class="form-group">
+                                <label for="price">Giá tiền:</label>
+                                <input value="<?php echo $tro['price'] ?>" placeholder="Ví dụ: 1000000" type="text" class="form-control" id="price" name="price">
+                            </div>
+                            <div class="form-group mt-1">
+                                <label for="numImages">Nhập số lượng ảnh:</label>
+                                <input value="<?php echo count($tro['images']) ?>" type="number" id="numImages" name="numImages" min="1" />
+                                <button type="button" class="btn btn-primary" onclick="createImageInputs()">
+                                        Tạo form điền link
+                                </button>
+                                <div id="imageInputs">
+                                    <!-- Image input fields will be generated here -->
+                                    <?php 
+                                    for ($i=0; $i < count($tro['images']); $i++) { 
+                                        echo '<input value="'.$tro['images'][$i].'" type="text" class="form-control" name="image">';
+                                    }
+                                    ?>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="area">Diện tích:</label>
+                                <input value="<?php echo $tro['area'] ?>" placeholder="Chỉ cần ghi số" type="text" class="form-control" id="area" name="area">
+                            </div>
+                            <div class="form-group">
+                                <label for="province">Tỉnh/thành:</label>
+                                <input value="<?php echo $tro['province'] ?>" placeholder="Ví dụ: thành phố Hà Nội" type="text" class="form-control" id="province" name="province">
+                            </div>
+                            <div class="form-group">
+                                <label for="district">Quận/huyện:</label>
+                                <input value="<?php echo $tro['district'] ?>" placeholder="Ví dụ: quận Đống Đa" type="text" class="form-control" id="district" name="district">
+                            </div>
+                            <div class="form-group">
+                                <label for="address">Số nhà/đường:</label>
+                                <input value="<?php echo $tro['address'] ?>" placeholder="Ví dụ: 175, Tây Sơn..." type="text" class="form-control" id="address" name="address">
+                            </div>
+                            <div class="form-group">
+                                <label for="content">Nội dung mô tả phòng:</label>
+                                <textarea class="form-control" id="content" name="content" rows="4"><?php echo $tro['content'] ?></textarea>
+                            </div>
+                            <div class="text-center">
+                                <button id="update" class="btn btn-primary m-1">Cập nhật thông tin</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="row mt-1 p-2" style="background-color: white;">
@@ -216,6 +245,58 @@ if (isset($_COOKIE['username'])) {
     </body>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="./script.js"></script>
-   
+    <script>
+        // console.log(</?php echo $index; ?>);
+        document.querySelector('#update').addEventListener("click", () => {
+        // id, time, user id
+        var images = [];
+        document.querySelectorAll('input[name="image"]').forEach((img) => {
+            images.push(img.value);
+        });
+
+        var tro = {
+            censor: 0,
+            title: document.querySelector('input[name="title"]').value,
+            price: document.querySelector('input[name="price"]').value,
+            status: 1,
+            images: images,
+            area: document.querySelector('input[name="area"]').value,
+            province: document.querySelector('input[name="province"]').value,
+            district: document.querySelector('input[name="district"]').value,
+            address: document.querySelector('input[name="address"]').value,
+            content: document.querySelector('textarea[name="content"]').value,
+        };
+        // console.log(submit.innerHTML);
+        if (
+            tro.title === "" ||
+            tro.price === "" ||
+            tro.area === "" ||
+            tro.province === "" ||
+            tro.district === "" ||
+            tro.address === "" ||
+            tro.content === ""
+        ) {
+            swal("Lỗi", "Nhập thiếu thông tin");
+        } else {
+            fetch("update.php", {
+                method: "POST",
+                body: JSON.stringify({tro: tro, index: <?php echo $index; ?>}),
+                headers: {
+                    "Content-Type": "application/json", // Set the content type to JSON
+                },
+            })
+                .then((response) => response.text())
+                .then(async (data) => {
+                    await swal(data);
+                    // window.location.href = "http://127.0.0.1";
+                    window.location.href = "http://127.0.0.1/?tab=3";
+                })
+                .catch((error) => {
+                    console.error("Error:", error);
+                });
+        }
+    });
+    </script>
+                                    
     
 </html>

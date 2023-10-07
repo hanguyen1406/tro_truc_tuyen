@@ -133,7 +133,8 @@ if (isset($_COOKIE['username'])) {
                         >Tìm trọ</a
                     >
                 </li>
-                <li class="nav-item">
+                <?php if($_COOKIE['role'] == 2) {
+                    echo '<li class="nav-item">
                     <a
                         class="nav-link"
                         id="Contact-tab"
@@ -143,7 +144,7 @@ if (isset($_COOKIE['username'])) {
                     <script>
                         var choThue = document.querySelector("#Contact-tab");
                         choThue.addEventListener("click",() => {
-                            if(getCookie('role') == '1') {
+                            if(getCookie("role") == "1") {
                                 swal("Lỗi", "Phần này chỉ dành cho người cho thuê")
 
                             }else {
@@ -154,17 +155,33 @@ if (isset($_COOKIE['username'])) {
                             }
                         });
                     </script>
-                </li>
-                <li class="nav-item">
+                </li>';
+                }
+                ?>
+                <?php if($_COOKIE['role'] == 2) {
+                echo 
+                '<li class="nav-item">
                     <a
                         class="nav-link"
                         id="trocuatoi-tab"
                         href="http://127.0.0.1?tab=3"
                         >Trọ của tôi</a
                     >
-                    
-                </li>
-                
+                </li>';
+                }
+                ?>
+                <?php if($_COOKIE['role'] == 1) {
+                echo 
+                '<li class="nav-item">
+                    <a
+                        class="nav-link"
+                        id="trocuatoi-tab"
+                        href="http://127.0.0.1?tab=4"
+                        >Trọ đang thuê</a
+                    >
+                </li>';
+                }
+                ?>
                 <li
                     style="flex: 1; flex-direction: row-reverse; display: flex"
                     class="nav-item "
@@ -186,7 +203,7 @@ if (isset($_COOKIE['username'])) {
                             .addEventListener("click", hideContextMenu);
 
                         </script>
-                        <li><p href="#" id="signOutBtn">Sign Out</p></li>
+                        <li><p href="#" id="signOutBtn">Đăng xuất</p></li>
                     </ul>
                 </div>
 

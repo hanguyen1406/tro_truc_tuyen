@@ -22,11 +22,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $not = count($jsonData);
     for ($i=0; $i < $not; $i++) { 
         if($jsonData[$i]['id'] == $index && $jsonUserData[$userid]['idtro'] == -1) {
+            if($jsonData[$i]['role'] == 2) {
+                echo '2';
+                exit();
+            }
             $jsonData[$i]['status'] = 0;
             $updatedData = json_encode($jsonData, JSON_PRETTY_PRINT);
             file_put_contents($jsonFilePathTro, $updatedData);
 
             $jsonUserData[$userid]['idtro'] = $index;
+            setcookie('idtro', $index, time() + 3600, '/');
             $updatedData = json_encode($jsonUserData, JSON_PRETTY_PRINT);
             file_put_contents($jsonFilePathUser, $updatedData);
             echo "1";

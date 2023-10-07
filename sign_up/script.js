@@ -21,7 +21,8 @@ sign_up.addEventListener("click", () => {
                 role: dangTk.value,
                 sex: sex.value, 
                 std: sdt.value,
-                idtro: -1
+                idtro: -1,
+                ban: 0
             };
             // console.log(user);
             fetch("sign_up.php", {

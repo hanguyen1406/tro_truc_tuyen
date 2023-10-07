@@ -19,7 +19,6 @@ document.querySelector("#sign_in").addEventListener("click", () => {
                 if(data == -1) {
                     // window.location.href = "http://127.0.0.1/admin";
                     window.location.href = "http://127.0.0.1/admin";
-
                 }
                 if (data == 0) {
                     // console.log(email.value);
@@ -32,6 +31,8 @@ document.querySelector("#sign_in").addEventListener("click", () => {
                         // window.location.href = "http://127.0.0.1";
 
                     });
+                }else if(data == 3) {
+                    swal("Tài khoản đã bị cấm!");
                 }
             })
             .catch((error) => {

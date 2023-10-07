@@ -7,7 +7,8 @@
         "sex": "1",
         "std": "+84367794146",
         "id": 0,
-        "idtro": 4
+        "idtro": 1,
+        "ban": 0
     },
     {
         "email": "hgnguyen47347714@gmail.com",
@@ -16,17 +17,138 @@
         "role": "1",
         "sex": "0",
         "std": "+84367794146",
-        "idtro": -1,
-        "id": 1
+        "idtro": 1,
+        "id": 1,
+        "ban": 0
     },
     {
-        "email": "a123@gmail.com",
-        "password": "12",
+        "email": "mynhduc2004@gmail.com",
+        "password": "minhduc01",
+        "username": "MinhDuc",
+        "role": "1",
+        "sex": "0",
+        "std": "03213945342",
+        "idtro": -1,
+        "id": 2
+    },
+    {
+        "email": "phonglinh15072001999@gmail.com",
+        "password": "123456789",
+        "username": "Nguy\u1ec5n Th\u00f9y Linh",
+        "role": "1",
+        "sex": "1",
+        "std": "+84 0934678954",
+        "idtro": 3,
+        "id": 3
+    },
+    {
+        "email": "phonglinh15072001@gmail.com",
+        "password": "123456789",
+        "username": "Nguy\u1ec5n Phong Linh",
+        "role": "2",
+        "sex": "1",
+        "std": "+840953786543",
+        "idtro": -1,
+        "id": 4
+    },
+    {
+        "email": "nguyendachieu@gmail.com",
+        "password": "123456789",
+        "username": "Nguy\u1ec5n \u0110\u1eafc Hi\u1ebfu",
+        "role": "2",
+        "sex": "0",
+        "std": "+840965785432",
+        "idtro": -1,
+        "id": 5
+    },
+    {
+        "email": "minhduc0011ace@gmail.com",
+        "password": "minhduc01",
+        "username": "minhduc",
+        "role": "1",
+        "sex": "0",
+        "std": "+844234534",
+        "idtro": -1,
+        "id": 6
+    },
+    {
+        "email": "cuongsosad.2k4@gmail.com",
+        "password": "minhduc01",
+        "username": "minhduc",
+        "role": "2",
+        "sex": "0",
+        "std": "+844234534",
+        "idtro": -1,
+        "id": 7
+    },
+    {
+        "email": "kietnekaka@gmail.com",
+        "password": "123",
+        "username": "ki\u1ec7t",
+        "role": "1",
+        "sex": "0",
+        "std": "+84373677670",
+        "idtro": -1,
+        "id": 8
+    },
+    {
+        "email": "hahahaha@gmail.com",
+        "password": "123456789",
+        "username": "hello",
+        "role": "1",
+        "sex": "0",
+        "std": "+84123456789",
+        "idtro": 5,
+        "id": 9
+    },
+    {
+        "email": "1234567@gmail.com",
+        "password": "123456",
         "username": "duy",
         "role": "2",
         "sex": "0",
-        "std": "+8412345678",
+        "std": "+841234567",
         "idtro": -1,
-        "id": 2
+        "id": 10
+    },
+    {
+        "email": "md2004@gmail.com",
+        "password": "minhduc01",
+        "username": "minhduc",
+        "role": "2",
+        "sex": "0",
+        "std": "+8443678428",
+        "idtro": -1,
+        "id": 13
+    },
+    {
+        "email": "hieuxm13@gmail.com",
+        "password": "hi",
+        "username": "hieu",
+        "role": "2",
+        "sex": "0",
+        "std": "+84987261332",
+        "idtro": -1,
+        "id": 14
+    },
+    {
+        "email": "hieuxm11@gmail.com",
+        "password": "hi",
+        "username": "S\u00e1i V\u0103n Hi\u1ebfu",
+        "role": "1",
+        "sex": "0",
+        "std": "+84 329606431",
+        "idtro": -1,
+        "id": 15
+    },
+    {
+        "email": "a@gmail.com",
+        "password": "123",
+        "username": "S\u00e1i V\u0103n Hi\u1ebfu",
+        "role": "1",
+        "sex": "0",
+        "std": "+84abc",
+        "idtro": -1,
+        "id": 16
     }
 ]

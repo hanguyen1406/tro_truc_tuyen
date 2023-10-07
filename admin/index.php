@@ -78,7 +78,7 @@ if (isset($_COOKIE['admin'])) {
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
         <title>Bootstrap 5.3 Example</title>
     </head>
-    <body>
+    <body style="background-image: url('../images/bg.png')">
         <div>
             <ul id="nav-tab" style="background-color: aliceblue" class="nav nav-tabs sticky-top p-2">
                 <li class="nav-item">
@@ -125,7 +125,7 @@ if (isset($_COOKIE['admin'])) {
                 </li>
             </ul>
 
-            <div style="background-color: blue" class="tab-content">
+            <div class="tab-content">
                 <div
                     id="Home"
                     class="tab-pane fade show active"
@@ -135,9 +135,7 @@ if (isset($_COOKIE['admin'])) {
                     <div class="container">
                         <?php 
                         $filePath = '../tro.json';
-                        // Read the existing JSON data from the file
                         $existingData = file_get_contents($filePath);
-                        // Decode the JSON data into a PHP array
                         $data = json_decode($existingData, true);
 
                         date_default_timezone_set('Asia/Bangkok');
@@ -201,7 +199,61 @@ if (isset($_COOKIE['admin'])) {
                     role="tabpanel"
                     aria-labelledby="Product-tab"
                 >
-                    <h3>Quan ly tai khoan</h3>
+                    <div class="container">
+                        <div class="card m-1">
+                            <div class="card-header text-center">
+                                <h4>Quản lý tài khoản</h4>
+                            </div>
+                            <div class="card-body">
+                                <style>
+                                    .blue-card-header {
+                                    background-color: #039dfc;
+                                    color: white; 
+                                    font-weight: bold; 
+}
+                                </style>
+                                <?php
+                                $filePath = '../account.json';
+                                $existingData = file_get_contents($filePath);
+                                $data = json_decode($existingData, true);
+        
+                                for ($i=0; $i < count($data); $i++) { 
+                                    echo '
+                                    <div class="card m-1 shadow">
+                                        <div class="card-header blue-card-header">Tài khoản '.($i + 1).':</div>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-md-6 border shadow-sm rounded">
+                                                    <div class="row m-1">
+                                                        Tên người dùng: '.$data[$i]['username'].'
+                                                    </div>
+                                                    <div class="row m-1">
+                                                        Địa chỉa email: '.$data[$i]['email'].'
+                                                    </div>
+                                                    <div class="row m-1">
+                                                        Dạng tài khoản: '.(($data[$i]['role'] == 1) ? "Người tìm trọ" : "Người cho thuê").'
+                                                    </div>
+                                                    <div class="row m-1">
+                                                        Số điện thoại: '.$data[$i]['std'].'
+                                                    </div>
+                                                    
+                                                </div>
+                                                <div class="col-md-5 m-1 text-center">
+                                                    <div onclick="huy('.$i.')" class="btn btn-danger">Hủy quyền truy cập</div>
+                                                    <div onclick="cho('.$i.')" class="btn btn-primary">Cho phép truy cập</div>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>    
+                                    </div>
+                                    ';
+                                }
+
+                                ?>
+                            </div>
+                            
+                        </div>
+                    </div>
                     
                 </div>
                 
