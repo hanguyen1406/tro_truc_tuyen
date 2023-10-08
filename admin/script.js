@@ -41,7 +41,7 @@ function hello(index) {
                 // window.location.href = "http://127.0.0.1/admin";
                 swal("Phê duyệt thành công").then(() => {
                     window.location.href =
-                        "http://127.0.0.1/admin";
+                        "http://trotot.infinityfreeapp.com/admin";
                 });
             }
         })
