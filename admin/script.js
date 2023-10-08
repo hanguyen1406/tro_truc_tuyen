@@ -38,7 +38,7 @@ function hello(index) {
         .then((response) => response.text())
         .then((data) => {
             if (data == 1) {
-                // window.location.href = "http://127.0.0.1/admin";
+                // window.location.href = "http://trotot.infinityfreeapp.com/admin";
                 swal("Phê duyệt thành công").then(() => {
                     window.location.href =
                         "http://trotot.infinityfreeapp.com/admin";

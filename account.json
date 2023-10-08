@@ -1,3 +1,13 @@
 [
-    
+    {
+        "email": "hgnguyen47347714@gmail.com",
+        "password": "123",
+        "username": "hanguyen1406",
+        "role": "2",
+        "sex": "0",
+        "std": "+84367794146",
+        "idtro": 0,
+        "ban": 0,
+        "id": 0
+    }
 ]

@@ -197,12 +197,8 @@ if (isset($_COOKIE['username'])) {
                 
                 <div class="context-menu" id="contextMenu">
                     <ul>
-                        <script>
-                            document
-                            .querySelector(".tab-content")
-                            .addEventListener("click", hideContextMenu);
-
-                        </script>
+                        <div id="submit"></div>
+                        <div id="huy"></div>
                         <li><p href="#" id="signOutBtn">Đăng xuất</p></li>
                     </ul>
                 </div>
@@ -210,7 +206,7 @@ if (isset($_COOKIE['username'])) {
                 </li>
             </ul>
 
-            <div class="tab-content container">
+            <div class="tab-content">
                 <div class="row mt-1">
                     <div  class="col-md-8">
                         <div class="card">

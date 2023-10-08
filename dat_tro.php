@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $not = count($jsonData);
     for ($i=0; $i < $not; $i++) { 
         if($jsonData[$i]['id'] == $index && $jsonUserData[$userid]['idtro'] == -1) {
-            if($jsonData[$i]['role'] == 2) {
+            if(intval($jsonData[$i]['role']) == 2) {
                 echo '2';
                 exit();
             }
