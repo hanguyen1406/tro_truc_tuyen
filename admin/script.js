@@ -26,6 +26,30 @@ function getCookie(cookieName) {
     return null;
 }
 
+function hello(index) {
+    // alert(index);
+    fetch("phe_duyet.php", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ index: index }),
+    })
+        .then((response) => response.text())
+        .then((data) => {
+            if (data == 1) {
+                // window.location.href = "http://127.0.0.1/admin";
+                swal("Phê duyệt thành công").then(() => {
+                    window.location.href =
+                        "http://127.0.0.1/admin";
+                });
+            }
+        })
+        .catch((error) => {
+            console.error("Error:", error);
+        });
+}
+
 function huy(index) {
     fetch("ban.php", {
         method: "POST",
